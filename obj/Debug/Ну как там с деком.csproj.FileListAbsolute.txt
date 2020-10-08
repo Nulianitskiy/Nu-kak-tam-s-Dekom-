@@ -1,0 +1,40 @@
+C:\Users\User\source\repos\Ну как там с деком\Ну как там с деком\bin\Debug\Ну как там с деком.exe.config
+C:\Users\User\source\repos\Ну как там с деком\Ну как там с деком\bin\Debug\Ну как там с деком.exe
+C:\Users\User\source\repos\Ну как там с деком\Ну как там с деком\bin\Debug\Ну как там с деком.pdb
+C:\Users\User\source\repos\Ну как там с деком\Ну как там с деком\obj\Debug\Ну как там с деком.csprojAssemblyReference.cache
+C:\Users\User\source\repos\Ну как там с деком\Ну как там с деком\obj\Debug\Ну_как_там_с_деком.Properties.Resources.resources
+C:\Users\User\source\repos\Ну как там с деком\Ну как там с деком\obj\Debug\Ну как там с деком.csproj.GenerateResource.cache
+C:\Users\User\source\repos\Ну как там с деком\Ну как там с деком\obj\Debug\Ну как там с деком.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\Ну как там с деком\Ну как там с деком\obj\Debug\Ну как там с деком.exe
+C:\Users\User\source\repos\Ну как там с деком\Ну как там с деком\obj\Debug\Ну как там с деком.pdb
+C:\Users\User\source\repos\Ну как там с деком\Ну как там с деком\obj\Debug\Может_через_список_попробовать.Form1.resources
+Z:\Ну как там с деком (ФиналОчка)\Ну как там с деком\bin\Debug\Ну как там с деком.exe.config
+Z:\Ну как там с деком (ФиналОчка)\Ну как там с деком\bin\Debug\Ну как там с деком.exe
+Z:\Ну как там с деком (ФиналОчка)\Ну как там с деком\bin\Debug\Ну как там с деком.pdb
+Z:\Ну как там с деком (ФиналОчка)\Ну как там с деком\obj\Debug\Ну как там с деком.csprojResolveAssemblyReference.cache
+Z:\Ну как там с деком (ФиналОчка)\Ну как там с деком\obj\Debug\Может_через_список_попробовать.Form1.resources
+Z:\Ну как там с деком (ФиналОчка)\Ну как там с деком\obj\Debug\Ну_как_там_с_деком.Properties.Resources.resources
+Z:\Ну как там с деком (ФиналОчка)\Ну как там с деком\obj\Debug\Ну как там с деком.csproj.GenerateResource.Cache
+Z:\Ну как там с деком (ФиналОчка)\Ну как там с деком\obj\Debug\Ну как там с деком.csproj.CoreCompileInputs.cache
+Z:\Ну как там с деком (ФиналОчка)\Ну как там с деком\obj\Debug\Ну как там с деком.exe
+Z:\Ну как там с деком (ФиналОчка)\Ну как там с деком\obj\Debug\Ну как там с деком.pdb
+F:\Ну как там с деком (НЕФиналОчка)\Ну как там с деком\bin\Debug\Ну как там с деком.exe.config
+F:\Ну как там с деком (НЕФиналОчка)\Ну как там с деком\bin\Debug\Ну как там с деком.exe
+F:\Ну как там с деком (НЕФиналОчка)\Ну как там с деком\bin\Debug\Ну как там с деком.pdb
+F:\Ну как там с деком (НЕФиналОчка)\Ну как там с деком\obj\Debug\Ну как там с деком.csprojAssemblyReference.cache
+F:\Ну как там с деком (НЕФиналОчка)\Ну как там с деком\obj\Debug\Может_через_список_попробовать.Form1.resources
+F:\Ну как там с деком (НЕФиналОчка)\Ну как там с деком\obj\Debug\Ну_как_там_с_деком.Properties.Resources.resources
+F:\Ну как там с деком (НЕФиналОчка)\Ну как там с деком\obj\Debug\Ну как там с деком.csproj.GenerateResource.cache
+F:\Ну как там с деком (НЕФиналОчка)\Ну как там с деком\obj\Debug\Ну как там с деком.csproj.CoreCompileInputs.cache
+F:\Ну как там с деком (НЕФиналОчка)\Ну как там с деком\obj\Debug\Ну как там с деком.exe
+F:\Ну как там с деком (НЕФиналОчка)\Ну как там с деком\obj\Debug\Ну как там с деком.pdb
+C:\Users\User\source\repos\Ну как там с деком (Теперь точно ФиналОчка)\Ну как там с деком\bin\Debug\Ну как там с деком.exe.config
+C:\Users\User\source\repos\Ну как там с деком (Теперь точно ФиналОчка)\Ну как там с деком\bin\Debug\Ну как там с деком.exe
+C:\Users\User\source\repos\Ну как там с деком (Теперь точно ФиналОчка)\Ну как там с деком\bin\Debug\Ну как там с деком.pdb
+C:\Users\User\source\repos\Ну как там с деком (Теперь точно ФиналОчка)\Ну как там с деком\obj\Debug\Ну как там с деком.csprojAssemblyReference.cache
+C:\Users\User\source\repos\Ну как там с деком (Теперь точно ФиналОчка)\Ну как там с деком\obj\Debug\Может_через_список_попробовать.Form1.resources
+C:\Users\User\source\repos\Ну как там с деком (Теперь точно ФиналОчка)\Ну как там с деком\obj\Debug\Ну_как_там_с_деком.Properties.Resources.resources
+C:\Users\User\source\repos\Ну как там с деком (Теперь точно ФиналОчка)\Ну как там с деком\obj\Debug\Ну как там с деком.csproj.GenerateResource.cache
+C:\Users\User\source\repos\Ну как там с деком (Теперь точно ФиналОчка)\Ну как там с деком\obj\Debug\Ну как там с деком.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\Ну как там с деком (Теперь точно ФиналОчка)\Ну как там с деком\obj\Debug\Ну как там с деком.exe
+C:\Users\User\source\repos\Ну как там с деком (Теперь точно ФиналОчка)\Ну как там с деком\obj\Debug\Ну как там с деком.pdb
