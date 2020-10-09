@@ -10,7 +10,7 @@ namespace Ну_как_там_с_деком
     {   
         public bool add_end(int TextIn) /*Добавление в конец дека*/
         {
-            if (items.Count < lenght)
+            if (!Full())
             {
                 items.Add(TextIn);
                 return true;
@@ -20,7 +20,7 @@ namespace Ну_как_там_с_деком
         
         public bool delete_end() /*Удаление из конца дека*/
         {
-            if (items.Count != 0)
+            if (!Empty())
             {
                 items.RemoveAt(items.Count - 1);
                 return true;
@@ -30,7 +30,11 @@ namespace Ну_как_там_с_деком
       
         public int end() /*Конечный элемент*/
         {
-            return items[items.Count - 1];
+            if (!Empty())
+            {
+                return items[items.Count - 1];
+            }
+            else return 0;
         }
         
     }

@@ -20,6 +20,7 @@ namespace Может_через_список_попробовать
         }
 
         Deque Serega = new Deque();
+        int x = 0;
 
         private void Add_end_Click(object sender, EventArgs e)//Добавление элемента в конец
         {
@@ -106,45 +107,49 @@ namespace Может_через_список_попробовать
 
         private void Max_Click(object sender, EventArgs e) //Максимум
         {
-            if (Serega.items.Count != 0)
-            {
-                RichTextBox.Text += "\nМаксимальный элемент дека = ";
-                RichTextBox.Text += Serega.max();
-            }
-            else RichTextBox.Text += "\nДек пуст!";
+            string chose = "max";
+            x = 0;
+            RichTextBox.Text += "\nМаксимальный элемент дека = ";
+            RichTextBox.Text += Serega.Operations(chose, x).ToString();
         }
 
         private void Min_Click(object sender, EventArgs e) //Минимум
         {
-            if (Serega.items.Count != 0)
-            {
-                RichTextBox.Text += "\nМинимальный элемент дека = ";
-                RichTextBox.Text += Serega.min();
-            }
-            else RichTextBox.Text += "\nДек пуст!";
+            string chose = "min";
+            x = 0;
+            RichTextBox.Text += "\nМинимальный элемент дека = ";
+            RichTextBox.Text += Serega.Operations(chose, x).ToString();
+        }
+
+        private void Sum_Click(object sender, EventArgs e) //Сумма элементов
+        {
+            string chose = "sum";
+            x = 0;
+            RichTextBox.Text += "\nСумма элементов дека = ";
+            RichTextBox.Text += Serega.Operations(chose, x).ToString();
+        }
+
+        private void Multiplex_Click(object sender, EventArgs e) //Произведение элементов
+        {
+            string chose = "mult";
+            x = 0;
+            RichTextBox.Text += "\nПроизведение элементов дека = ";
+            RichTextBox.Text += Serega.Operations(chose, x).ToString();
         }
 
         private void Count_Click(object sender, EventArgs e) //Количество элементов
         {
             RichTextBox.Text += "\nКолличество элементов в деке = ";
-            RichTextBox.Text += Serega.count();
+            RichTextBox.Text += Serega.items.Count.ToString();
         }
         private void All_Click(object sender, EventArgs e) //Все элементы
         {
+            int[] output = Serega.all();
             RichTextBox.Text += "\nЭлементы дека: ";
-            RichTextBox.Text += Serega.all();
-        }
-
-        private void Sum_Click(object sender, EventArgs e) //Сумма элементов
-        {
-            RichTextBox.Text += "\nСумма элементов дека = ";
-            RichTextBox.Text += Serega.sum();
-        }
-
-        private void Multiplex_Click(object sender, EventArgs e) //Произведение элементов
-        {
-            RichTextBox.Text += "\nПроизведение элементов дека = ";
-            RichTextBox.Text += Serega.mult();
+            foreach (int Item in output)
+            {
+                RichTextBox.Text += Item.ToString() + " ";
+            }
         }
 
         private void Reverse_Click(object sender, EventArgs e) //Инвертирование дека

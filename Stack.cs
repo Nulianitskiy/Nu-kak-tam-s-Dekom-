@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace Ну_как_там_с_деком
 {
@@ -11,9 +12,20 @@ namespace Ну_как_там_с_деком
         public List<int> items = new List<int>();
         public const int lenght = 5;
 
+        protected bool Full()/*Проверка на переполнение*/
+        {
+            if (lenght == items.Count) return true;
+            else return false;
+        }
+        protected bool Empty()
+        {
+            if (items.Count == 0) return true;
+            else return false;
+        }
+
         public bool add_start(int TextIn) /*Добавление в начало дека*/
         {
-            if (items.Count < lenght)/*Проверка на переполнение*/
+            if (!Full())
             {
                 items.Insert(0, TextIn);
                 return true;
@@ -23,7 +35,7 @@ namespace Ну_как_там_с_деком
 
         public bool delete_start() /*Удаление из начала дека*/
         {
-            if (items.Count != 0)
+            if (!Empty())
             {
                 items.RemoveAt(0);
                 return true;
@@ -33,67 +45,56 @@ namespace Ну_как_там_с_деком
 
         public int start() /*Начальный элемент*/
         {
+            if (!Empty())
+            {
                 return items[0];
-        }
-
-        public int max() /*Максимум*/
-        {
-            int M = Convert.ToInt32(items[0]);
-            int m;
-
-            foreach (int Item in items)
-            {
-                m = Item;
-                if (m > M) M = m;
             }
-            return M;
+            else return 0;
         }
 
-        public int min() /*Минимум*/
+        public int Operations(string chose, int x)
         {
-            int M = items[0];
-            int m;
-
-            foreach (int Item in items)
+            if (!Empty())
             {
-                m = Item;
-                if (m < M) M = m;
-            }
-            return M;
-        }
-
-        public int count() /*Количество*/
-        {
-            return items.Count;
-        }
-
-        public string all() /*Все элементы*/
-        {
-            string x = "";
-            if (items.Count != 0)
-            {
+                x = 0;
+                switch (chose)
+                {
+                    case "min":
+                    case "max":
+                        x = items[0];
+                        break;
+                    case "sum":
+                        x = 0;
+                        break;
+                    case "mult":
+                        x = 1;
+                        break;
+                }
                 foreach (int Item in items)
-                    x += Convert.ToString(Item) + " ";
+                    switch (chose)
+                    {
+                        case "min":
+                            if (Item < x) x = Item;
+                            break;
+                        case "max":
+                            if (Item > x) x = Item;
+                            break;
+                        case "sum":
+                            x += Item;
+                            break;
+                        case "mult":
+                            x *= Item;
+                            break;
+                    }
+                return x;
             }
-            return x;
+            else return x;
         }
 
-        public int sum() /*Сумма*/
+        public int[] all() /*Все элементы*/
         {
-            int x = 0;
-            foreach (int Item in items)
-                x += Item;
-
-            return x;
-        }
-
-        public int mult() /*Произведение*/
-        {
-            int x = 1;
-            foreach (int Item in items)
-                x *= Item;
-
-            return x;
+            int[] output = items.ToArray();
+            return output;   
         }
 
         public void reverse() /*Инверсия*/
