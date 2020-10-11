@@ -27,7 +27,7 @@ namespace Может_через_список_попробовать
             int number;
             if (Int32.TryParse(TextBoxIn.Text, out number))
             {
-                if (Serega.add_end(Convert.ToInt32(TextBoxIn.Text)))
+                if (Serega.add_top(Convert.ToInt32(TextBoxIn.Text)))
                 {
                     RichTextBox.Text += "\nВ дек добавлен элемент!";
                     TextBoxIn.Text = "";
@@ -49,7 +49,7 @@ namespace Может_через_список_попробовать
             int number;
             if (Int32.TryParse(TextBoxIn.Text, out number))
             {
-                if (Serega.add_end(Convert.ToInt32(TextBoxIn.Text)))
+                if (Serega.add_start(Convert.ToInt32(TextBoxIn.Text)))
                 {
                     RichTextBox.Text += "\nВ дек добавлен элемент!";
                     TextBoxIn.Text = "";
@@ -69,7 +69,7 @@ namespace Может_через_список_попробовать
 
         private void Delete_end_Click(object sender, EventArgs e)//Удаление элемента из конца
         {
-            if (Serega.delete_end())
+            if (Serega.delete_top())
             {
                 RichTextBox.Text += "\nИз дека удален элемент!";
             }
@@ -91,7 +91,7 @@ namespace Может_через_список_попробовать
             if (Serega.items.Count != 0)
             {
                 RichTextBox.Text += "\nНа конце дека: ";
-                RichTextBox.Text += Serega.end();
+                RichTextBox.Text += Serega.top();
             }
             else RichTextBox.Text += "\nДек пуст!";
         }

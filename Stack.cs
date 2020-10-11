@@ -12,49 +12,39 @@ namespace Ну_как_там_с_деком
         public List<int> items = new List<int>();
         public const int lenght = 5;
 
-        protected bool Full()/*Проверка на переполнение*/
-        {
-            if (lenght == items.Count) return true;
-            else return false;
-        }
-        protected bool Empty()
-        {
-            if (items.Count == 0) return true;
-            else return false;
-        }
 
-        public bool add_start(int TextIn) /*Добавление в начало дека*/
+        public bool add_top(int TextIn) /*Добавление в топ*/
         {
-            if (!Full())
+            if (lenght != items.Count)
             {
-                items.Insert(0, TextIn);
+                items.Add(TextIn);
                 return true;
             }
             else return false;
         }
 
-        public bool delete_start() /*Удаление из начала дека*/
+        public bool delete_top() /*Удаление из топа*/
         {
-            if (!Empty())
+            if (items.Count != 0)
             {
-                items.RemoveAt(0);
+                items.RemoveAt(items.Count - 1);
                 return true;
             }
             else return false;
         }
 
-        public int start() /*Начальный элемент*/
+        public int top() /*Элемент на топе*/
         {
-            if (!Empty())
+            if (items.Count != 0)
             {
-                return items[0];
+                return items[items.Count - 1];
             }
             else return 0;
         }
 
         public int Operations(string chose, int x)
         {
-            if (!Empty())
+            if (items.Count != 0)
             {
                 x = 0;
                 switch (chose)

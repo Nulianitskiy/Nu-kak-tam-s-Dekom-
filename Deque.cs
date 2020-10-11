@@ -8,34 +8,33 @@ namespace Ну_как_там_с_деком
 {
     class Deque : Stack
     {   
-        public bool add_end(int TextIn) /*Добавление в конец дека*/
+        public bool add_start(int TextIn) /*Добавление в начало дека*/
         {
-            if (!Full())
+            if (lenght != items.Count)
             {
-                items.Add(TextIn);
+                items.Insert(0, TextIn);
                 return true;
             }
             else return false;
         }
-        
-        public bool delete_end() /*Удаление из конца дека*/
+
+        public bool delete_start() /*Удаление из начала дека*/
         {
-            if (!Empty())
+            if (items.Count != 0)
             {
-                items.RemoveAt(items.Count - 1);
+                items.RemoveAt(0);
                 return true;
             }
             else return false;
         }
-      
-        public int end() /*Конечный элемент*/
+
+        public int start() /*Начальный элемент*/
         {
-            if (!Empty())
+            if (items.Count != 0)
             {
-                return items[items.Count - 1];
+                return items[0];
             }
             else return 0;
         }
-        
     }
 }
