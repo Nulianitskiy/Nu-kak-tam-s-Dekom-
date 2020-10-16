@@ -7,10 +7,19 @@ using System.Threading.Tasks;
 namespace Ну_как_там_с_деком
 {
     class Deque : Stack
-    {   
+    {
+        private int back;
+
+        public Deque(int Lenght) : base(Lenght)
+        {
+            back = 0;
+        }
+
+
+
         public bool add_start(int TextIn) /*Добавление в начало дека*/
         {
-            if (lenght != items.Count)
+            if (!CheckFull())
             {
                 items.Insert(0, TextIn);
                 return true;
@@ -20,7 +29,7 @@ namespace Ну_как_там_с_деком
 
         public bool delete_start() /*Удаление из начала дека*/
         {
-            if (items.Count != 0)
+            if (!CheckEmpty())
             {
                 items.RemoveAt(0);
                 return true;
@@ -30,7 +39,7 @@ namespace Ну_как_там_с_деком
 
         public int start() /*Начальный элемент*/
         {
-            if (items.Count != 0)
+            if (!CheckEmpty())
             {
                 return items[0];
             }

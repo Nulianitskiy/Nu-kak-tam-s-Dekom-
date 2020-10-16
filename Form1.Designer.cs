@@ -47,36 +47,43 @@
             this.Delete_start = new System.Windows.Forms.Button();
             this.Start = new System.Windows.Forms.Button();
             this.All = new System.Windows.Forms.Button();
+            this.Init = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Add_end
             // 
+            this.Add_end.Enabled = false;
             this.Add_end.Location = new System.Drawing.Point(393, 35);
             this.Add_end.Name = "Add_end";
             this.Add_end.Size = new System.Drawing.Size(100, 40);
             this.Add_end.TabIndex = 0;
             this.Add_end.Text = "Добавить в конец";
             this.Add_end.UseVisualStyleBackColor = true;
+            this.Add_end.Visible = false;
             this.Add_end.Click += new System.EventHandler(this.Add_end_Click);
             // 
             // Delete_end
             // 
+            this.Delete_end.Enabled = false;
             this.Delete_end.Location = new System.Drawing.Point(393, 71);
             this.Delete_end.Name = "Delete_end";
             this.Delete_end.Size = new System.Drawing.Size(100, 40);
             this.Delete_end.TabIndex = 1;
             this.Delete_end.Text = "Удаление из конца";
             this.Delete_end.UseVisualStyleBackColor = true;
+            this.Delete_end.Visible = false;
             this.Delete_end.Click += new System.EventHandler(this.Delete_end_Click);
             // 
             // End
             // 
+            this.End.Enabled = false;
             this.End.Location = new System.Drawing.Point(393, 108);
             this.End.Name = "End";
             this.End.Size = new System.Drawing.Size(100, 40);
             this.End.TabIndex = 2;
             this.End.Text = "Конец дека";
             this.End.UseVisualStyleBackColor = true;
+            this.End.Visible = false;
             this.End.Click += new System.EventHandler(this.End_Click);
             // 
             // TextBoxIn
@@ -88,62 +95,74 @@
             // 
             // Max
             // 
+            this.Max.Enabled = false;
             this.Max.Location = new System.Drawing.Point(154, 80);
             this.Max.Name = "Max";
             this.Max.Size = new System.Drawing.Size(100, 40);
             this.Max.TabIndex = 4;
             this.Max.Text = "Максимальный элемент";
             this.Max.UseVisualStyleBackColor = true;
+            this.Max.Visible = false;
             this.Max.Click += new System.EventHandler(this.Max_Click);
             // 
             // Min
             // 
+            this.Min.Enabled = false;
             this.Min.Location = new System.Drawing.Point(248, 80);
             this.Min.Name = "Min";
             this.Min.Size = new System.Drawing.Size(100, 40);
             this.Min.TabIndex = 5;
             this.Min.Text = "Минимальный элемент";
             this.Min.UseVisualStyleBackColor = true;
+            this.Min.Visible = false;
             this.Min.Click += new System.EventHandler(this.Min_Click);
             // 
             // Count
             // 
+            this.Count.Enabled = false;
             this.Count.Location = new System.Drawing.Point(154, 126);
             this.Count.Name = "Count";
             this.Count.Size = new System.Drawing.Size(100, 40);
             this.Count.TabIndex = 6;
             this.Count.Text = "Количество элементов";
             this.Count.UseVisualStyleBackColor = true;
+            this.Count.Visible = false;
             this.Count.Click += new System.EventHandler(this.Count_Click);
             // 
             // Sum
             // 
+            this.Sum.Enabled = false;
             this.Sum.Location = new System.Drawing.Point(154, 172);
             this.Sum.Name = "Sum";
             this.Sum.Size = new System.Drawing.Size(100, 40);
             this.Sum.TabIndex = 7;
             this.Sum.Text = "Сумма";
             this.Sum.UseVisualStyleBackColor = true;
+            this.Sum.Visible = false;
             this.Sum.Click += new System.EventHandler(this.Sum_Click);
             // 
             // Multiplex
             // 
+            this.Multiplex.Enabled = false;
             this.Multiplex.Location = new System.Drawing.Point(248, 172);
             this.Multiplex.Name = "Multiplex";
             this.Multiplex.Size = new System.Drawing.Size(100, 40);
             this.Multiplex.TabIndex = 8;
             this.Multiplex.Text = "Произведение";
             this.Multiplex.UseVisualStyleBackColor = true;
+            this.Multiplex.Visible = false;
             this.Multiplex.Click += new System.EventHandler(this.Multiplex_Click);
             // 
             // Reverse
             // 
+            this.Reverse.Enabled = false;
             this.Reverse.Location = new System.Drawing.Point(203, 218);
             this.Reverse.Name = "Reverse";
             this.Reverse.Size = new System.Drawing.Size(100, 40);
             this.Reverse.TabIndex = 9;
             this.Reverse.Text = "Инверсия";
             this.Reverse.UseVisualStyleBackColor = true;
+            this.Reverse.Visible = false;
             this.Reverse.Click += new System.EventHandler(this.Reverse_Click);
             // 
             // RichTextBox
@@ -154,16 +173,18 @@
             this.RichTextBox.Size = new System.Drawing.Size(518, 158);
             this.RichTextBox.TabIndex = 10;
             this.RichTextBox.Text = "";
+            this.RichTextBox.TextChanged += new System.EventHandler(this.RichTextBox_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(204, 22);
+            this.label1.Location = new System.Drawing.Point(171, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 20);
+            this.label1.Size = new System.Drawing.Size(167, 20);
             this.label1.TabIndex = 11;
-            this.label1.Text = "Ввод дека";
+            this.label1.Text = "Введите длину дека";
             // 
             // label2
             // 
@@ -186,43 +207,61 @@
             // 
             // Add_start
             // 
+            this.Add_start.Enabled = false;
             this.Add_start.Location = new System.Drawing.Point(12, 35);
             this.Add_start.Name = "Add_start";
             this.Add_start.Size = new System.Drawing.Size(100, 40);
             this.Add_start.TabIndex = 14;
             this.Add_start.Text = "Добавить в начало";
             this.Add_start.UseVisualStyleBackColor = true;
+            this.Add_start.Visible = false;
             this.Add_start.Click += new System.EventHandler(this.Add_start_Click);
             // 
             // Delete_start
             // 
+            this.Delete_start.Enabled = false;
             this.Delete_start.Location = new System.Drawing.Point(12, 71);
             this.Delete_start.Name = "Delete_start";
             this.Delete_start.Size = new System.Drawing.Size(100, 40);
             this.Delete_start.TabIndex = 15;
             this.Delete_start.Text = "Удалить из начала";
             this.Delete_start.UseVisualStyleBackColor = true;
+            this.Delete_start.Visible = false;
             this.Delete_start.Click += new System.EventHandler(this.Delete_start_Click);
             // 
             // Start
             // 
+            this.Start.Enabled = false;
             this.Start.Location = new System.Drawing.Point(12, 108);
             this.Start.Name = "Start";
             this.Start.Size = new System.Drawing.Size(100, 40);
             this.Start.TabIndex = 16;
             this.Start.Text = "Начало дека";
             this.Start.UseVisualStyleBackColor = true;
+            this.Start.Visible = false;
             this.Start.Click += new System.EventHandler(this.Start_Click);
             // 
             // All
             // 
+            this.All.Enabled = false;
             this.All.Location = new System.Drawing.Point(248, 126);
             this.All.Name = "All";
             this.All.Size = new System.Drawing.Size(100, 40);
             this.All.TabIndex = 17;
             this.All.Text = "Элементы дека";
             this.All.UseVisualStyleBackColor = true;
+            this.All.Visible = false;
             this.All.Click += new System.EventHandler(this.All_Click);
+            // 
+            // Init
+            // 
+            this.Init.Location = new System.Drawing.Point(154, 71);
+            this.Init.Name = "Init";
+            this.Init.Size = new System.Drawing.Size(194, 68);
+            this.Init.TabIndex = 18;
+            this.Init.Text = "Длина дека";
+            this.Init.UseVisualStyleBackColor = true;
+            this.Init.Click += new System.EventHandler(this.Init_Click);
             // 
             // Form1
             // 
@@ -230,6 +269,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(515, 449);
+            this.Controls.Add(this.Init);
             this.Controls.Add(this.All);
             this.Controls.Add(this.Start);
             this.Controls.Add(this.Delete_start);
@@ -275,6 +315,7 @@
         private System.Windows.Forms.Button Delete_start;
         private System.Windows.Forms.Button Start;
         private System.Windows.Forms.Button All;
+        private System.Windows.Forms.Button Init;
     }
 }
 

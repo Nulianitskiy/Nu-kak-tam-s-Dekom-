@@ -9,15 +9,31 @@ namespace Ну_как_там_с_деком
 {
     class Stack
     {
-        public List<int> items = new List<int>();
-        public const int lenght = 5;
+        protected List<int> items;
+        protected int lenght;
+        protected int front;
 
+        protected Stack(int Lenght)
+        {
+            items = new List<int>();
+            lenght = Lenght;
+            front = lenght;
+        }
 
+        public bool CheckFull()
+        {
+            return lenght == items.Count;
+        }
+        public bool CheckEmpty()
+        {
+            return items.Count == 0;
+        }
         public bool add_top(int TextIn) /*Добавление в топ*/
         {
-            if (lenght != items.Count)
+            if (!CheckFull())
             {
                 items.Add(TextIn);
+                front--;
                 return true;
             }
             else return false;
@@ -25,7 +41,7 @@ namespace Ну_как_там_с_деком
 
         public bool delete_top() /*Удаление из топа*/
         {
-            if (items.Count != 0)
+            if (!CheckEmpty())
             {
                 items.RemoveAt(items.Count - 1);
                 return true;
@@ -35,7 +51,7 @@ namespace Ну_как_там_с_деком
 
         public int top() /*Элемент на топе*/
         {
-            if (items.Count != 0)
+            if (!CheckEmpty())
             {
                 return items[items.Count - 1];
             }
@@ -44,7 +60,7 @@ namespace Ну_как_там_с_деком
 
         public int Operations(string chose, int x)
         {
-            if (items.Count != 0)
+            if (!CheckEmpty())
             {
                 x = 0;
                 switch (chose)

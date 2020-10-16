@@ -18,9 +18,47 @@ namespace Может_через_список_попробовать
         {
             InitializeComponent();
         }
-
-        Deque Serega = new Deque();
+        Deque Serega;
         int x = 0;
+        private void Init_Click(object sender, EventArgs e)
+        {
+            int number;
+            if (Int32.TryParse(TextBoxIn.Text, out number))
+            {
+                Serega = new Deque(Convert.ToInt32(TextBoxIn.Text));
+                TextBoxIn.Text = "";
+                label1.Text = "Ввод дека";
+                Add_end.Enabled = true;
+                Add_start.Enabled = true;
+                Delete_end.Enabled = true;
+                Delete_start.Enabled = true;
+                End.Enabled = true;
+                Start.Enabled = true;
+                Min.Enabled = true;
+                Max.Enabled = true;
+                Sum.Enabled = true;
+                Multiplex.Enabled = true;
+                All.Enabled = true;
+                Count.Enabled = true;
+                Reverse.Enabled = true;
+                Add_end.Visible = true;
+                Add_start.Visible = true;
+                Delete_end.Visible = true;
+                Delete_start.Visible = true;
+                End.Visible = true;
+                Start.Visible = true;
+                Min.Visible = true;
+                Max.Visible = true;
+                Sum.Visible = true;
+                Multiplex.Visible = true;
+                All.Visible = true;
+                Count.Visible = true;
+                Reverse.Visible = true;
+                Init.Enabled = false;
+                Init.Visible = false;
+            }
+            else RichTextBox.Text = "\nОшибка ввода!";
+        }
 
         private void Add_end_Click(object sender, EventArgs e)//Добавление элемента в конец
         {
@@ -88,7 +126,7 @@ namespace Может_через_список_попробовать
 
         private void End_Click(object sender, EventArgs e)//Конец дека
         {
-            if (Serega.items.Count != 0)
+            if (!Serega.CheckEmpty())
             {
                 RichTextBox.Text += "\nНа конце дека: ";
                 RichTextBox.Text += Serega.top();
@@ -97,7 +135,7 @@ namespace Может_через_список_попробовать
         }
         private void Start_Click(object sender, EventArgs e)//Начало дека
         {
-            if (Serega.items.Count != 0)
+            if (!Serega.CheckEmpty())
             {
                 RichTextBox.Text += "\nВ начале дека: ";
                 RichTextBox.Text += Serega.start();
@@ -140,7 +178,7 @@ namespace Может_через_список_попробовать
         private void Count_Click(object sender, EventArgs e) //Количество элементов
         {
             RichTextBox.Text += "\nКолличество элементов в деке = ";
-            RichTextBox.Text += Serega.items.Count.ToString();
+            RichTextBox.Text += Serega.all().Count().ToString();
         }
         private void All_Click(object sender, EventArgs e) //Все элементы
         {
@@ -163,5 +201,10 @@ namespace Может_через_список_попробовать
             RichTextBox.Text = "";
         }
 
+        private void RichTextBox_TextChanged(object sender, EventArgs e)
+        {
+            RichTextBox.SelectionStart = RichTextBox.Text.Length;
+            RichTextBox.ScrollToCaret();
+        }
     }
 }
