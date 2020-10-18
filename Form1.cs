@@ -19,11 +19,10 @@ namespace Может_через_список_попробовать
             InitializeComponent();
         }
         Deque Serega;
-        int x = 0;
+
         private void Init_Click(object sender, EventArgs e)
         {
-            int number;
-            if (Int32.TryParse(TextBoxIn.Text, out number))
+            try
             {
                 Serega = new Deque(Convert.ToInt32(TextBoxIn.Text));
                 TextBoxIn.Text = "";
@@ -57,122 +56,131 @@ namespace Может_через_список_попробовать
                 Init.Enabled = false;
                 Init.Visible = false;
             }
-            else RichTextBox.Text = "\nОшибка ввода!";
+            catch (Exception)
+            {
+                RichTextBox.Text = "\nОшибка ввода!";
+            }
         }
 
         private void Add_end_Click(object sender, EventArgs e)//Добавление элемента в конец
         {
             int number;
-            if (Int32.TryParse(TextBoxIn.Text, out number))
+            try
             {
-                if (Serega.add_top(Convert.ToInt32(TextBoxIn.Text)))
-                {
-                    RichTextBox.Text += "\nВ дек добавлен элемент!";
-                    TextBoxIn.Text = "";
-                }
-                else
-                {
-                    RichTextBox.Text += "\nОшибка переполнения данных!";
-                    TextBoxIn.Text = "";
-                }
+                Int32.TryParse(TextBoxIn.Text, out number);
             }
-            else
+            catch (Exception)
             {
                 RichTextBox.Text += "\nОшибка ввода данных!";
+                TextBoxIn.Text = "";
+            }
+            try
+            {
+                Serega.add_front(Convert.ToInt32(TextBoxIn.Text));
+                RichTextBox.Text += "\nВ дек добавлен элемент!";
+                TextBoxIn.Text = "";
+            }
+            catch (IndexOutOfRangeException)
+            {
+                RichTextBox.Text += "\nОшибка переполнения данных!";
                 TextBoxIn.Text = "";
             }
         }
         private void Add_start_Click(object sender, EventArgs e)//Добавление элемента в начало
         {
             int number;
-            if (Int32.TryParse(TextBoxIn.Text, out number))
+            try
             {
-                if (Serega.add_start(Convert.ToInt32(TextBoxIn.Text)))
-                {
-                    RichTextBox.Text += "\nВ дек добавлен элемент!";
-                    TextBoxIn.Text = "";
-                }
-                else
-                {
-                    RichTextBox.Text += "\nОшибка переполнения данных!";
-                    TextBoxIn.Text = "";
-                } 
+                Int32.TryParse(TextBoxIn.Text, out number);
             }
-            else
+            catch (Exception)
             {
                 RichTextBox.Text += "\nОшибка ввода данных!";
+                TextBoxIn.Text = "";
+            }
+            try
+            {
+                Serega.add_back(Convert.ToInt32(TextBoxIn.Text));
+                RichTextBox.Text += "\nВ дек добавлен элемент!";
+                TextBoxIn.Text = "";
+            }
+            catch (IndexOutOfRangeException)
+            {
+                RichTextBox.Text += "\nОшибка переполнения данных!";
                 TextBoxIn.Text = "";
             }
         }
 
         private void Delete_end_Click(object sender, EventArgs e)//Удаление элемента из конца
         {
-            if (Serega.delete_top())
+            try
             {
+                Serega.delete_front();
                 RichTextBox.Text += "\nИз дека удален элемент!";
             }
-            else
+            catch (IndexOutOfRangeException)
+            {
                 RichTextBox.Text += "\nДек пуст!";
+            }
         }
+
         private void Delete_start_Click(object sender, EventArgs e)//Удаление элемента из начала
         {
-            if (Serega.delete_start())
+            try
             {
+                Serega.delete_back();
                 RichTextBox.Text += "\nИз дека удален элемент!";
             }
-            else
+            catch (IndexOutOfRangeException)
+            {
                 RichTextBox.Text += "\nДек пуст!";
+            }
         }
 
         private void End_Click(object sender, EventArgs e)//Конец дека
         {
-            if (!Serega.CheckEmpty())
+            try
             {
                 RichTextBox.Text += "\nНа конце дека: ";
-                RichTextBox.Text += Serega.top();
+                RichTextBox.Text += Serega.get_front();
             }
-            else RichTextBox.Text += "\nДек пуст!";
+            catch (Exception)
+            {
+                RichTextBox.Text += "\nДек пуст!";
+            }
         }
         private void Start_Click(object sender, EventArgs e)//Начало дека
         {
-            if (!Serega.CheckEmpty())
+            try
             {
                 RichTextBox.Text += "\nВ начале дека: ";
-                RichTextBox.Text += Serega.start();
+                RichTextBox.Text += Serega.get_back();
             }
-            else RichTextBox.Text += "\nДек пуст!";
+            catch (Exception)
+            {
+                RichTextBox.Text += "\nДек пуст!";
+            }
         }
 
         private void Max_Click(object sender, EventArgs e) //Максимум
         {
-            string chose = "max";
-            x = 0;
             RichTextBox.Text += "\nМаксимальный элемент дека = ";
-            RichTextBox.Text += Serega.Operations(chose, x).ToString();
+            RichTextBox.Text += Serega.operations("max").ToString();
         }
-
         private void Min_Click(object sender, EventArgs e) //Минимум
         {
-            string chose = "min";
-            x = 0;
             RichTextBox.Text += "\nМинимальный элемент дека = ";
-            RichTextBox.Text += Serega.Operations(chose, x).ToString();
+            RichTextBox.Text += Serega.operations("min").ToString();
         }
-
         private void Sum_Click(object sender, EventArgs e) //Сумма элементов
         {
-            string chose = "sum";
-            x = 0;
             RichTextBox.Text += "\nСумма элементов дека = ";
-            RichTextBox.Text += Serega.Operations(chose, x).ToString();
+            RichTextBox.Text += Serega.operations("sum").ToString();
         }
-
         private void Multiplex_Click(object sender, EventArgs e) //Произведение элементов
         {
-            string chose = "mult";
-            x = 0;
             RichTextBox.Text += "\nПроизведение элементов дека = ";
-            RichTextBox.Text += Serega.Operations(chose, x).ToString();
+            RichTextBox.Text += Serega.operations("mult").ToString();
         }
 
         private void Count_Click(object sender, EventArgs e) //Количество элементов
@@ -192,7 +200,7 @@ namespace Может_через_список_попробовать
 
         private void Reverse_Click(object sender, EventArgs e) //Инвертирование дека
         {
-            Serega.reverse();
+            Serega.deque_reverse();
             RichTextBox.Text += "\nДек инвертирован!";
         }
 

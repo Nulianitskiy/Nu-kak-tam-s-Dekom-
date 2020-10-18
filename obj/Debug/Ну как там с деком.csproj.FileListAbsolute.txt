@@ -48,3 +48,13 @@ C:\Users\User\source\repos\Ну как там с деком (Теперь точ
 C:\Users\User\source\repos\Ну как там с деком (Теперь точно ФиналОчка)\Ну как там с деком\Nu-kak-tam-s-Dekom-\bin\Debug\Ну как там с деком.exe.config
 C:\Users\User\source\repos\Ну как там с деком (Теперь точно ФиналОчка)\Ну как там с деком\Nu-kak-tam-s-Dekom-\bin\Debug\Ну как там с деком.exe
 C:\Users\User\source\repos\Ну как там с деком (Теперь точно ФиналОчка)\Ну как там с деком\Nu-kak-tam-s-Dekom-\bin\Debug\Ну как там с деком.pdb
+C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\bin\Debug\Ну как там с деком.exe.config
+C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\bin\Debug\Ну как там с деком.exe
+C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\bin\Debug\Ну как там с деком.pdb
+C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\obj\Debug\Ну как там с деком.csprojAssemblyReference.cache
+C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\obj\Debug\Может_через_список_попробовать.Form1.resources
+C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\obj\Debug\Ну_как_там_с_деком.Properties.Resources.resources
+C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\obj\Debug\Ну как там с деком.csproj.GenerateResource.cache
+C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\obj\Debug\Ну как там с деком.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\obj\Debug\Ну как там с деком.exe
+C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\obj\Debug\Ну как там с деком.pdb

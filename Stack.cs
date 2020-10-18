@@ -11,58 +11,46 @@ namespace Ну_как_там_с_деком
     {
         protected List<int> items;
         protected int lenght;
-        protected int front;
 
         protected Stack(int Lenght)
         {
             items = new List<int>();
             lenght = Lenght;
-            front = lenght;
         }
 
-        public bool CheckFull()
+        protected bool CheckFull()
         {
-            return lenght == items.Count;
+            return items.Count == lenght;
         }
-        public bool CheckEmpty()
+        protected bool CheckEmpty()
         {
             return items.Count == 0;
         }
-        public bool add_top(int TextIn) /*Добавление в топ*/
+
+        protected void add_top(int TextIn) /*Добавление в топ*/
         {
-            if (!CheckFull())
-            {
-                items.Add(TextIn);
-                front--;
-                return true;
-            }
-            else return false;
+            if (CheckFull())
+                throw new IndexOutOfRangeException();
+            items.Add(TextIn);
         }
 
-        public bool delete_top() /*Удаление из топа*/
+        protected void delete_top() /*Удаление из топа*/
+        {
+            if (CheckEmpty())
+                throw new IndexOutOfRangeException();
+            items.RemoveAt(items.Count - 1);
+        }
+
+        protected int get_top() /*Элемент на топе*/
+        {
+            return items[items.Count - 1];
+        }
+
+        public int operations(string chose)
         {
             if (!CheckEmpty())
             {
-                items.RemoveAt(items.Count - 1);
-                return true;
-            }
-            else return false;
-        }
-
-        public int top() /*Элемент на топе*/
-        {
-            if (!CheckEmpty())
-            {
-                return items[items.Count - 1];
-            }
-            else return 0;
-        }
-
-        public int Operations(string chose, int x)
-        {
-            if (!CheckEmpty())
-            {
-                x = 0;
+                int x = 0;
                 switch (chose)
                 {
                     case "min":
@@ -94,7 +82,7 @@ namespace Ну_как_там_с_деком
                     }
                 return x;
             }
-            else return x;
+            else return 0;
         }
 
         public int[] all() /*Все элементы*/
@@ -103,7 +91,7 @@ namespace Ну_как_там_с_деком
             return output;   
         }
 
-        public void reverse() /*Инверсия*/
+        protected void stack_reverse() /*Инверсия*/
         {
             items.Reverse();
         }
