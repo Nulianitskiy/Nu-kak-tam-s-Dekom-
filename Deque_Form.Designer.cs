@@ -1,6 +1,6 @@
 ﻿namespace Может_через_список_попробовать
 {
-    partial class Form1
+    partial class Deque_Form
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Deque_Form));
             this.Add_end = new System.Windows.Forms.Button();
             this.Delete_end = new System.Windows.Forms.Button();
             this.End = new System.Windows.Forms.Button();
@@ -263,7 +263,7 @@
             this.Init.UseVisualStyleBackColor = true;
             this.Init.Click += new System.EventHandler(this.Init_Click);
             // 
-            // Form1
+            // Deque_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -288,8 +288,8 @@
             this.Controls.Add(this.End);
             this.Controls.Add(this.Delete_end);
             this.Controls.Add(this.Add_end);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Deque_Form";
+            this.Text = "Deque_Form";
             this.ResumeLayout(false);
             this.PerformLayout();
 

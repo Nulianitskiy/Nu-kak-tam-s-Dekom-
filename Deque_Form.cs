@@ -11,10 +11,10 @@ using Ну_как_там_с_деком;
 
 namespace Может_через_список_попробовать
 {
-    public partial class Form1 : Form
+    public partial class Deque_Form : Form
     {
 
-        public Form1()
+        public Deque_Form()
         {
             InitializeComponent();
         }

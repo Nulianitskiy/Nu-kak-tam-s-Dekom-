@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Ну_как_там_с_деком;
 
 namespace Может_через_список_попробовать
 {
@@ -16,7 +17,7 @@ namespace Может_через_список_попробовать
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Choser());
         }
     }
 }
