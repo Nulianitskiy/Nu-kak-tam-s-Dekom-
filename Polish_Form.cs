@@ -17,19 +17,10 @@ namespace Ну_как_там_с_деком
             InitializeComponent();
         }
 
-        private void TextBoxPol_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void Calculation_Click(object sender, EventArgs e)
         {
-
+            RichTextBoxPol.Text = Convert.ToString(Polish.Calculate(TextBoxPol.Text));
         }
 
-        private void RichTextBoxPol_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

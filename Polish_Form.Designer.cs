@@ -75,7 +75,6 @@
             this.TextBoxPol.Name = "TextBoxPol";
             this.TextBoxPol.Size = new System.Drawing.Size(200, 20);
             this.TextBoxPol.TabIndex = 3;
-            this.TextBoxPol.TextChanged += new System.EventHandler(this.TextBoxPol_TextChanged);
             // 
             // RichTextBoxPol
             // 
@@ -84,7 +83,6 @@
             this.RichTextBoxPol.Size = new System.Drawing.Size(200, 100);
             this.RichTextBoxPol.TabIndex = 4;
             this.RichTextBoxPol.Text = "";
-            this.RichTextBoxPol.TextChanged += new System.EventHandler(this.RichTextBoxPol_TextChanged);
             // 
             // Polish_Form
             // 

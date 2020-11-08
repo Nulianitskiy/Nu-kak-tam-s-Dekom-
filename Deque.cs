@@ -57,7 +57,7 @@ namespace Ну_как_там_с_деком
         }
         public int get_front()
         {
-            return get_top();
+            return top;
         }
         public void deque_reverse()
         {

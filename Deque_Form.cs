@@ -186,11 +186,11 @@ namespace Может_через_список_попробовать
         private void Count_Click(object sender, EventArgs e) //Количество элементов
         {
             RichTextBox.Text += "\nКолличество элементов в деке = ";
-            RichTextBox.Text += Serega.all().Count().ToString();
+            RichTextBox.Text += Serega.All.Count().ToString();
         }
         private void All_Click(object sender, EventArgs e) //Все элементы
         {
-            int[] output = Serega.all();
+            int[] output = Serega.All;
             RichTextBox.Text += "\nЭлементы дека: ";
             foreach (int Item in output)
             {

@@ -12,7 +12,7 @@ namespace Ну_как_там_с_деком
         protected List<int> items;
         protected int lenght;
 
-        protected Stack(int Lenght)
+        public Stack(int Lenght)
         {
             items = new List<int>();
             lenght = Lenght;
@@ -41,9 +41,9 @@ namespace Ну_как_там_с_деком
             items.RemoveAt(items.Count - 1);
         }
 
-        protected int get_top() /*Элемент на топе*/
+        public int top /*Элемент на топе*/
         {
-            return items[items.Count - 1];
+            get => items[items.Count - 1];
         }
 
         public int operations(string chose)
@@ -85,10 +85,14 @@ namespace Ну_как_там_с_деком
             else return 0;
         }
 
-        public int[] all() /*Все элементы*/
+        protected int[] all() /*Все элементы*/
         {
             int[] output = items.ToArray();
             return output;   
+        }
+        public int[] All
+        {
+            get => all();
         }
 
         protected void stack_reverse() /*Инверсия*/
