@@ -39,7 +39,7 @@
             // Calculation
             // 
             this.Calculation.BackColor = System.Drawing.Color.Transparent;
-            this.Calculation.Location = new System.Drawing.Point(12, 56);
+            this.Calculation.Location = new System.Drawing.Point(12, 40);
             this.Calculation.Name = "Calculation";
             this.Calculation.Size = new System.Drawing.Size(200, 50);
             this.Calculation.TabIndex = 0;
@@ -71,16 +71,16 @@
             // 
             // TextBoxPol
             // 
-            this.TextBoxPol.Location = new System.Drawing.Point(12, 30);
+            this.TextBoxPol.Location = new System.Drawing.Point(12, 14);
             this.TextBoxPol.Name = "TextBoxPol";
             this.TextBoxPol.Size = new System.Drawing.Size(200, 20);
             this.TextBoxPol.TabIndex = 3;
             // 
             // RichTextBoxPol
             // 
-            this.RichTextBoxPol.Location = new System.Drawing.Point(12, 126);
+            this.RichTextBoxPol.Location = new System.Drawing.Point(12, 182);
             this.RichTextBoxPol.Name = "RichTextBoxPol";
-            this.RichTextBoxPol.Size = new System.Drawing.Size(200, 100);
+            this.RichTextBoxPol.Size = new System.Drawing.Size(250, 44);
             this.RichTextBoxPol.TabIndex = 4;
             this.RichTextBoxPol.Text = "";
             // 
@@ -89,7 +89,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(221, 236);
+            this.ClientSize = new System.Drawing.Size(274, 260);
             this.Controls.Add(this.RichTextBoxPol);
             this.Controls.Add(this.TextBoxPol);
             this.Controls.Add(this.label2);

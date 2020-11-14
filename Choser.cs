@@ -36,5 +36,12 @@ namespace Ну_как_там_с_деком
         {
             Application.Exit();
         }
+
+        private void Zuma_Click(object sender, EventArgs e)
+        {
+            Sortir_Form newForm = new Sortir_Form();
+            newForm.Owner = this;
+            newForm.Show();
+        }
     }
 }

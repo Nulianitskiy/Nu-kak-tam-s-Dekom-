@@ -60,3 +60,4 @@ C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\obj\Debug\Ну как там с �
 C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\obj\Debug\Ну_как_там_с_деком.Choser.resources
 C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\obj\Debug\Может_через_список_попробовать.Deque_Form.resources
 C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\obj\Debug\Ну_как_там_с_деком.Polish_Form.resources
+C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\obj\Debug\Ну_как_там_с_деком.Sortir_Form.resources

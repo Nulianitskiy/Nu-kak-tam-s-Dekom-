@@ -32,6 +32,7 @@
             this.Open_Polish = new System.Windows.Forms.Button();
             this.Open_Deque = new System.Windows.Forms.Button();
             this.Close = new System.Windows.Forms.Button();
+            this.Zuma = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Open_Polish
@@ -59,16 +60,27 @@
             this.Close.Image = ((System.Drawing.Image)(resources.GetObject("Close.Image")));
             this.Close.Location = new System.Drawing.Point(-3, 194);
             this.Close.Name = "Close";
-            this.Close.Size = new System.Drawing.Size(400, 100);
+            this.Close.Size = new System.Drawing.Size(597, 100);
             this.Close.TabIndex = 2;
             this.Close.UseVisualStyleBackColor = true;
             this.Close.Click += new System.EventHandler(this.Close_Click);
+            // 
+            // Zuma
+            // 
+            this.Zuma.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Zuma.BackgroundImage")));
+            this.Zuma.Location = new System.Drawing.Point(394, 0);
+            this.Zuma.Name = "Zuma";
+            this.Zuma.Size = new System.Drawing.Size(200, 200);
+            this.Zuma.TabIndex = 3;
+            this.Zuma.UseVisualStyleBackColor = true;
+            this.Zuma.Click += new System.EventHandler(this.Zuma_Click);
             // 
             // Choser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(396, 290);
+            this.ClientSize = new System.Drawing.Size(591, 290);
+            this.Controls.Add(this.Zuma);
             this.Controls.Add(this.Close);
             this.Controls.Add(this.Open_Deque);
             this.Controls.Add(this.Open_Polish);
@@ -83,5 +95,6 @@
         private System.Windows.Forms.Button Open_Polish;
         private System.Windows.Forms.Button Open_Deque;
         private System.Windows.Forms.Button Close;
+        private System.Windows.Forms.Button Zuma;
     }
 }
