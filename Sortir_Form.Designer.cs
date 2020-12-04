@@ -42,6 +42,7 @@
             this.RichTextBoxZuma = new System.Windows.Forms.RichTextBox();
             this.RichTextBoxTime = new System.Windows.Forms.RichTextBox();
             this.PrintIn = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -133,7 +134,7 @@
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(274, 292);
+            this.button9.Location = new System.Drawing.Point(208, 300);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(100, 67);
             this.button9.TabIndex = 9;
@@ -168,12 +169,23 @@
             this.PrintIn.UseVisualStyleBackColor = true;
             this.PrintIn.Click += new System.EventHandler(this.PrintIn_Click);
             // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(347, 300);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(98, 65);
+            this.button10.TabIndex = 13;
+            this.button10.Text = "Перезапись массива";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
             // Sortir_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(640, 480);
+            this.Controls.Add(this.button10);
             this.Controls.Add(this.PrintIn);
             this.Controls.Add(this.RichTextBoxTime);
             this.Controls.Add(this.RichTextBoxZuma);
@@ -209,5 +221,6 @@
         private System.Windows.Forms.RichTextBox RichTextBoxZuma;
         private System.Windows.Forms.RichTextBox RichTextBoxTime;
         private System.Windows.Forms.Button PrintIn;
+        private System.Windows.Forms.Button button10;
     }
 }

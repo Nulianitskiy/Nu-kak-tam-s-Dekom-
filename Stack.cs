@@ -1,49 +1,57 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
 
 namespace Ну_как_там_с_деком
 {
     class Stack
     {
         protected List<int> items;
-        protected int lenght;
+        protected int top;
 
         public Stack(int Lenght)
         {
             items = new List<int>();
-            lenght = Lenght;
+            
+            for (int i = 0; i < Lenght; i++)
+                items.Add(0);
+            top = 0;
         }
 
         protected bool CheckFull()
         {
-            return items.Count == lenght;
+            return top == items.Count - 1;
         }
         protected bool CheckEmpty()
         {
-            return items.Count == 0;
+            return top == 0;
         }
 
-        protected void add_top(int TextIn) /*Добавление в топ*/
+        protected void push(int TextIn) /*Добавление в топ*/
         {
             if (CheckFull())
                 throw new IndexOutOfRangeException();
-            items.Add(TextIn);
+            else
+            {
+                items[top++] = TextIn;
+            }
         }
 
-        protected void delete_top() /*Удаление из топа*/
+        protected void pop() /*Удаление из топа*/
         {
             if (CheckEmpty())
                 throw new IndexOutOfRangeException();
-            items.RemoveAt(items.Count - 1);
+            else
+            {
+                items[--top] = 0;
+            }
         }
 
-        public int top /*Элемент на топе*/
+        public int get() /*Элемент на топе*/
         {
-            get => items[items.Count - 1];
+            if (CheckEmpty())
+                throw new IndexOutOfRangeException();
+            else
+                return items[top - 1];
         }
 
         public int operations(string chose)
@@ -90,12 +98,8 @@ namespace Ну_как_там_с_деком
             int[] output = items.ToArray();
             return output;   
         }
-        public int[] All
-        {
-            get => all();
-        }
 
-        protected void stack_reverse() /*Инверсия*/
+        protected void stackReverse() /*Инверсия*/
         {
             items.Reverse();
         }

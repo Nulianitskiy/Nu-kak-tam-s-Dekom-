@@ -45,6 +45,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="ZedGraph, Version=5.1.7.430, Culture=neutral, PublicKeyToken=02a83cbd123fcd60, processorArchitecture=MSIL">
+      <HintPath>packages\ZedGraph.5.1.7\lib\net35-Client\ZedGraph.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Choser.cs">
@@ -59,6 +62,12 @@
     </Compile>
     <Compile Include="Deque_Form.Designer.cs">
       <DependentUpon>Deque_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Grafouni_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Grafouni_Form.Designer.cs">
+      <DependentUpon>Grafouni_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Polish.cs" />
     <Compile Include="Polish_Form.cs">
@@ -83,6 +92,9 @@
     <EmbeddedResource Include="Deque_Form.resx">
       <DependentUpon>Deque_Form.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Grafouni_Form.resx">
+      <DependentUpon>Grafouni_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Polish_Form.resx">
       <DependentUpon>Polish_Form.cs</DependentUpon>
     </EmbeddedResource>
@@ -99,6 +111,7 @@
     <EmbeddedResource Include="Sortir_Form.resx">
       <DependentUpon>Sortir_Form.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -111,6 +124,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="License-LGPL.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

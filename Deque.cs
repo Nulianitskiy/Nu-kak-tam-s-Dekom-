@@ -1,70 +1,76 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ну_как_там_с_деком
 {
     class Deque : Stack
     {
-        private int back;
         private int front;
 
         public Deque(int Lenght) : base(Lenght)
         {
-            back = 0;
-            front = Lenght;
+            front = Lenght - 1;
         }
         private bool CheckConflict()
         {
-            return back == front;
+            return top == front;
         }
-
-
-        public void add_back(int TextIn) /*Добавление в начало дека*/
+        private bool CheckDFull()
         {
-            if (CheckFull() || CheckConflict())
-                throw new IndexOutOfRangeException();
-            items.Insert(0, TextIn);
-            back++;
+            return front == 0;
         }
 
-        public void delete_back() /*Удаление из начала дека*/
-        {
-            if (CheckEmpty())
-                throw new IndexOutOfRangeException();
-            items.RemoveAt(0);
-            back--;
-        }
 
-        public int get_back() /*Начальный элемент*/
-        {
-            return items[0];
-        }
-
-        public void add_front(int TextIn)
+        public void pushBack(int TextIn) /*Добавление в начало дека*/
         {
             if (CheckConflict())
                 throw new IndexOutOfRangeException();
-            add_top(TextIn);
-            front--;
+            else
+                push(TextIn);
         }
-        public void delete_front()
+
+        public void popBack() /*Удаление из начала дека*/
         {
-            delete_top();
-            front++;
+            pop();
         }
-        public int get_front()
+
+        public int getBack() /*Начальный элемент*/
         {
-            return top;
+            return get();
         }
-        public void deque_reverse()
+
+        public void pushFront(int TextIn)
         {
-            stack_reverse();
+            if (CheckConflict() || CheckDFull())
+                throw new IndexOutOfRangeException();
+            else
+            {
+                items[--front] = TextIn;
+            }
+        }
+        public void popFront()
+        {
+            if (CheckEmpty()|| CheckConflict())
+                throw new IndexOutOfRangeException();
+            else
+            {
+                items[front++] = 0;
+            }
+        }
+        public int getFront()
+        {
+            return items[front - 1];
+        }
+
+        public int[] getAll()
+        {
+            return all();
+        }
+        public void dequeReverse()
+        {
+            stackReverse();
             int t = front;
-            front = back;
-            back = t;
+            front = top;
+            top = t;
         }
     }
 }

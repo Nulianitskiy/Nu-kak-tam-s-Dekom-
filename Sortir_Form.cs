@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
@@ -20,9 +13,10 @@ namespace Ну_как_там_с_деком
         }
         Sortir Zuma = new Sortir();
 
-        int[] MainArrai;
+        int[] MainArray;
+        int[] WorkArray;
 
-        string writePath = @"D:\FastSpace\Out.txt";
+        string writePath = @"Out.txt";
         Stopwatch stopWatch = new Stopwatch();// Секундомер
 
         private void Timer(Stopwatch stopwatch)
@@ -35,7 +29,7 @@ namespace Ну_как_там_с_деком
         {
             stopWatch.Start();
 
-            Zuma.Bubble_sort(MainArrai);
+            Zuma.Bubble_sort(WorkArray);
 
             stopWatch.Stop();
             Timer(stopWatch);
@@ -45,7 +39,7 @@ namespace Ну_как_там_с_деком
         {
             stopWatch.Start();
 
-            Zuma.Shaker_sort(MainArrai);
+            Zuma.Shaker_sort(WorkArray);
 
             stopWatch.Stop();
             Timer(stopWatch);
@@ -55,8 +49,8 @@ namespace Ну_как_там_с_деком
         {
             stopWatch.Start();
 
-            //Zuma.Comb_sort(MainArrai);
-            RichTextBoxZuma.Text = "Временные неполадки. Ждите правок в говнокоде!";
+            Zuma.Comb_sort(WorkArray);
+
             stopWatch.Stop();
             Timer(stopWatch);
         }
@@ -65,7 +59,7 @@ namespace Ну_как_там_с_деком
         {
             stopWatch.Start();
 
-            Zuma.Insertion_sort(MainArrai);
+            Zuma.Insertion_sort(WorkArray);
 
             stopWatch.Stop();
             Timer(stopWatch);
@@ -75,7 +69,7 @@ namespace Ну_как_там_с_деком
         {
             stopWatch.Start();
 
-            Zuma.Selection_sort(MainArrai);
+            Zuma.Selection_sort(WorkArray);
 
             stopWatch.Stop();
             Timer(stopWatch);
@@ -83,10 +77,11 @@ namespace Ну_как_там_с_деком
 
         private void Tree_Click(object sender, EventArgs e)
         {
-            Sortir.TreeNode tree = new Sortir.TreeNode(0);
+            Sortir.TreeSort tree = new Sortir.TreeSort();
             stopWatch.Start();
 
-            tree.TreeSort(MainArrai);
+            tree.InsertToTree(WorkArray);
+            tree.inorderRec(tree.Root);
 
             stopWatch.Stop();
             Timer(stopWatch);
@@ -97,7 +92,7 @@ namespace Ну_как_там_с_деком
             Sortir.HeapSort heap = new Sortir.HeapSort();
             stopWatch.Start();
 
-            heap.sort(MainArrai);
+            heap.sort(WorkArray);
 
             stopWatch.Stop();
             Timer(stopWatch);
@@ -108,7 +103,7 @@ namespace Ну_как_там_с_деком
             Sortir.SmoothSort smooth = new Sortir.SmoothSort();
             stopWatch.Start();
 
-            smooth.sort(MainArrai);
+            smooth.sort(WorkArray);
 
             stopWatch.Stop();
             Timer(stopWatch);
@@ -116,19 +111,26 @@ namespace Ну_как_там_с_деком
 
         private void Create_Click(object sender, EventArgs e)
         {
-            MainArrai = Zuma.Zapolnitel(TextBoxZuma.Text);
-            RichTextBoxZuma.Text = "Длина массива = " + MainArrai.Length;
+            MainArray = Zuma.Zapolnitel(TextBoxZuma.Text);
+            WorkArray = MainArray;
+            RichTextBoxZuma.Text = "Длина массива = " + WorkArray.Length;
         }
 
         private void PrintIn_Click(object sender, EventArgs e)
         {
             StreamWriter sw = new StreamWriter(writePath, false, System.Text.Encoding.Default);
-            foreach (int item in MainArrai)//Печатаем в файл
+            foreach (int item in WorkArray)//Печатаем в файл
             {
                 sw.Write(item);
                 sw.Write("\t");
             }
             sw.Close();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            WorkArray = MainArray;
+            RichTextBoxZuma.Text = "Массив перезаписан!";
         }
     }
 }

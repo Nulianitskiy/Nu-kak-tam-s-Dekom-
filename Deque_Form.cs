@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Ну_как_там_с_деком;
 
@@ -76,7 +70,7 @@ namespace Может_через_список_попробовать
             }
             try
             {
-                Serega.add_front(Convert.ToInt32(TextBoxIn.Text));
+                Serega.pushFront(Convert.ToInt32(TextBoxIn.Text));
                 RichTextBox.Text += "\nВ дек добавлен элемент!";
                 TextBoxIn.Text = "";
             }
@@ -100,7 +94,7 @@ namespace Может_через_список_попробовать
             }
             try
             {
-                Serega.add_back(Convert.ToInt32(TextBoxIn.Text));
+                Serega.pushBack(Convert.ToInt32(TextBoxIn.Text));
                 RichTextBox.Text += "\nВ дек добавлен элемент!";
                 TextBoxIn.Text = "";
             }
@@ -115,7 +109,7 @@ namespace Может_через_список_попробовать
         {
             try
             {
-                Serega.delete_front();
+                Serega.popFront();
                 RichTextBox.Text += "\nИз дека удален элемент!";
             }
             catch (IndexOutOfRangeException)
@@ -128,7 +122,7 @@ namespace Может_через_список_попробовать
         {
             try
             {
-                Serega.delete_back();
+                Serega.popBack();
                 RichTextBox.Text += "\nИз дека удален элемент!";
             }
             catch (IndexOutOfRangeException)
@@ -142,7 +136,7 @@ namespace Может_через_список_попробовать
             try
             {
                 RichTextBox.Text += "\nНа конце дека: ";
-                RichTextBox.Text += Serega.get_front();
+                RichTextBox.Text += Serega.getFront();
             }
             catch (Exception)
             {
@@ -154,7 +148,7 @@ namespace Может_через_список_попробовать
             try
             {
                 RichTextBox.Text += "\nВ начале дека: ";
-                RichTextBox.Text += Serega.get_back();
+                RichTextBox.Text += Serega.getBack();
             }
             catch (Exception)
             {
@@ -186,11 +180,11 @@ namespace Может_через_список_попробовать
         private void Count_Click(object sender, EventArgs e) //Количество элементов
         {
             RichTextBox.Text += "\nКолличество элементов в деке = ";
-            RichTextBox.Text += Serega.All.Count().ToString();
+            RichTextBox.Text += Serega.getAll().Count().ToString();
         }
         private void All_Click(object sender, EventArgs e) //Все элементы
         {
-            int[] output = Serega.All;
+            int[] output = Serega.getAll();
             RichTextBox.Text += "\nЭлементы дека: ";
             foreach (int Item in output)
             {
@@ -200,7 +194,7 @@ namespace Может_через_список_попробовать
 
         private void Reverse_Click(object sender, EventArgs e) //Инвертирование дека
         {
-            Serega.deque_reverse();
+            Serega.dequeReverse();
             RichTextBox.Text += "\nДек инвертирован!";
         }
 

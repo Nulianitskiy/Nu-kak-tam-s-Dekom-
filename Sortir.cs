@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ну_как_там_с_деком
 {
@@ -23,7 +19,7 @@ namespace Ну_как_там_с_деком
             }
             int[] arr = new int[n];
             for (int i = 0; i < n; i++)
-                arr[i] = rnd.Next();
+                arr[i] = rnd.Next(0, 1000);
             return arr;
         }
 
@@ -78,125 +74,160 @@ namespace Ну_как_там_с_деком
             }
         }
 
-        public void Comb_sort(int[] arr)
+        private static int GetNextGap(int gap)
         {
-            if (arr.Length <= 1) return;
-            double k = 1.247;
-            int step = arr.Length - 1;
-            while (step > 1)
+            //The "shrink factor", empirically shown to be 1.3
+            gap = (gap * 10) / 13;
+            if (gap < 1)
             {
-                for (int i = 0; i + step < arr.Length - 1; i++)
-                    if (arr[i] > arr[i + step])
-                    {
-                        int t = arr[i];
-                        arr[i] = arr[i + step];
-                        arr[i + step] = t;
-                    }
-                //step /= k;
+                return 1;
             }
-            bool b = true;
-            while (b)
-            {
-                b = false;
-                for (int i = 1; i + 1 < arr.Length; i++)
-                    if (arr[i] > arr[i + 1])
-                    {
-                        int t = arr[i];
-                        arr[i] = arr[i + 1];
-                        arr[i + 1] = t;
-                        b = true;
-                    }
-            }
+            return gap;
         }
 
-        public void Insertion_sort(int[] arr)
+        public void Comb_sort(int[] array)
         {
-            for (int i = 0; i < arr.Length - 1; i++)
+            int length = array.Length;
+
+            int gap = length;
+
+            //We initialize this as true to enter the while loop.
+            bool swapped = true;
+
+            while (gap != 1 || swapped == true)
             {
-                int j = i;
-                while (j > 1 && arr[i - 1] > arr[i])
+                gap = GetNextGap(gap);
+
+                //Set swapped as false.  Will go to true when two values are swapped.
+                swapped = false;
+
+                //Compare all elements with current gap 
+                for (int i = 0; i < length - gap; i++)
                 {
-                    int t = arr[i];
-                    arr[i] = arr[i - 1];
-                    arr[i - 1] = t;
-                    j--;
+                    if (array[i] > array[i + gap])
+                    {
+                        //Swap
+                        int temp = array[i];
+                        array[i] = array[i + gap];
+                        array[i + gap] = temp;
+
+                        swapped = true;
+                    }
                 }
             }
         }
 
-        public void Selection_sort(int[] arr)
+        public void Insertion_sort(int[] array)
         {
-            for (int i = 0; i < arr.Length - 1; i++)
+            //1. For each value in the array...
+            for (int i = 1; i < array.Length; ++i)
             {
-                int min = arr[i], ind = i;
-                for (int j = i + 1; j < arr.Length - 1; j++)
+                //2. Store the current value in a variable.
+                int currentValue = array[i];
+                int pointer = i - 1;
+
+                //3. While we are pointing to a valid value...
+                //4. If the current value is less than the value we are pointing at...
+                while (pointer >= 0 && array[pointer] > currentValue)
                 {
-                    if (arr[j] < min)
+                    //5. Then move the pointed-at value up one space, and store the
+                    //   current value at the pointed-at position.
+                    array[pointer + 1] = array[pointer];
+                    pointer -= 1;
+                }
+                array[pointer + 1] = currentValue;
+            }
+        }
+
+        public void Selection_sort(int[] array)
+        {
+            int temp, smallest;
+
+            //The algorithm builds the sorted list from the left.
+            //1. For each item in the array...
+            for (int i = 0; i < array.Length - 1; i++)
+            {
+                //2. ...assume the first item is the smallest value
+                smallest = i;
+                //3. Cycle through the rest of the array
+                for (int j = i + 1; j < array.Length; j++)
+                {
+                    //4. If any of the remaining values are smaller, find the smallest of these
+                    if (array[j] < array[smallest])
                     {
-                        min = arr[j];
-                        ind = j;
+                        smallest = j;
                     }
-                    int t = arr[i];
-                    arr[i] = arr[ind];
-                    arr[ind] = t;
                 }
+                //5. Swap the found-smallest value with the current value
+                temp = array[smallest];
+                array[smallest] = array[i];
+                array[i] = temp;
             }
         }
 
-        public class TreeNode
+        public class Node
         {
-            public TreeNode(int data)
+            public int Key { get; set; }
+            public Node LeftNode, RightNode;
+
+            public Node(int item)
             {
-                Data = data;
+                Key = item;
+                LeftNode = RightNode = null;
             }
+        }
 
-            private int Data { get; set; }//данные
-            private TreeNode Left { get; set; }//левая ветка дерева
-            private TreeNode Right { get; set; }//правая ветка дерева
+        public class TreeSort
+        {
+            // Root of Binary Search Tree
+            public Node Root = null;
 
-            private void Insert(TreeNode node)//рекурсивное добавление узла в дерево
+
+            public Node Insert(Node root, int key)
             {
-                if (node.Data < Data)
 
-                    if (Left == null)
-                        Left = node;
-                    else
-                        Left.Insert(node);
-
-                else
-
-                    if (Right == null)
-                    Right = node;
-                else
-                    Right.Insert(node);
-            }
-
-            private int[] Transform(List<int> elements = null)//преобразование дерева в отсортированный массив
-            {
-                if (elements == null)
-                    elements = new List<int>();
-
-                if (Left != null)
-                    Left.Transform(elements);
-                elements.Add(Data);
-
-                if (Right != null)
-                    Right.Transform(elements);
-                return elements.ToArray();
-            }
-
-            public int[] TreeSort(int[] array)//метод для сортировки с помощью двоичного дерева
-            {
-                var treeNode = new TreeNode(array[0]);
-                for (int i = 1; i < array.Length; i++)
+                /* If the tree is empty, 
+                return a new node */
+                if (root == null)
                 {
-                    treeNode.Insert(new TreeNode(array[i]));
+                    root = new Node(key);
+                    return root;
                 }
 
-                return treeNode.Transform();
+                /* Otherwise, recur 
+                down the tree */
+                if (key < root.Key)
+                {
+                    root.LeftNode = Insert(root.LeftNode, key);
+                }
+                else if (key > root.Key)
+                {
+                    root.RightNode = Insert(root.RightNode, key);
+                }
+
+                return root;
             }
 
+            public void inorderRec(Node root)
+            {
+                if (root != null)
+                {
+                    inorderRec(root.LeftNode);
+                    Console.Write(root.Key + " ");
+                    inorderRec(root.RightNode);
+                }
+            }
+
+            public void InsertToTree(int[] arr)
+            {
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    Root = Insert(Root, arr[i]);
+                }
+
+            }
         }
+
         public class HeapSort
         {
             public void sort(int[] arr)

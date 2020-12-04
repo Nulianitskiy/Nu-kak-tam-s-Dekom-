@@ -43,5 +43,12 @@ namespace Ну_как_там_с_деком
             newForm.Owner = this;
             newForm.Show();
         }
+
+        private void Grafouni_Click(object sender, EventArgs e)
+        {
+            Grafouni_Form newForm = new Grafouni_Form();
+            newForm.Owner = this;
+            newForm.Show();
+        }
     }
 }

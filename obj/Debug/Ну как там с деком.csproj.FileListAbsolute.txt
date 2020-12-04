@@ -61,3 +61,20 @@ C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\obj\Debug\Ну_как_там_с_�
 C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\obj\Debug\Может_через_список_попробовать.Deque_Form.resources
 C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\obj\Debug\Ну_как_там_с_деком.Polish_Form.resources
 C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\obj\Debug\Ну_как_там_с_деком.Sortir_Form.resources
+C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\bin\Debug\ZedGraph.dll
+C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\bin\Debug\ZedGraph.xml
+C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\bin\Debug\de\ZedGraph.resources.dll
+C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\bin\Debug\es\ZedGraph.resources.dll
+C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\bin\Debug\fr\ZedGraph.resources.dll
+C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\bin\Debug\hu\ZedGraph.resources.dll
+C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\bin\Debug\it\ZedGraph.resources.dll
+C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\bin\Debug\ja\ZedGraph.resources.dll
+C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\bin\Debug\pt\ZedGraph.resources.dll
+C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\bin\Debug\ru\ZedGraph.resources.dll
+C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\bin\Debug\sk\ZedGraph.resources.dll
+C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\bin\Debug\sv\ZedGraph.resources.dll
+C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\bin\Debug\tr\ZedGraph.resources.dll
+C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\bin\Debug\zh-cn\ZedGraph.resources.dll
+C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\bin\Debug\zh-tw\ZedGraph.resources.dll
+C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\obj\Debug\Ну как там с деком.csproj.CopyComplete
+C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\obj\Debug\Ну_как_там_с_деком.Grafouni_Form.resources
