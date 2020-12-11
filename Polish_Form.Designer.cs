@@ -39,7 +39,7 @@
             // Calculation
             // 
             this.Calculation.BackColor = System.Drawing.Color.Transparent;
-            this.Calculation.Location = new System.Drawing.Point(12, 40);
+            this.Calculation.Location = new System.Drawing.Point(12, 53);
             this.Calculation.Name = "Calculation";
             this.Calculation.Size = new System.Drawing.Size(200, 50);
             this.Calculation.TabIndex = 0;
@@ -51,8 +51,8 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(9, 14);
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(9, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(66, 13);
             this.label1.TabIndex = 1;
@@ -62,8 +62,8 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(12, 110);
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(12, 166);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 13);
             this.label2.TabIndex = 2;
@@ -71,7 +71,7 @@
             // 
             // TextBoxPol
             // 
-            this.TextBoxPol.Location = new System.Drawing.Point(12, 14);
+            this.TextBoxPol.Location = new System.Drawing.Point(12, 27);
             this.TextBoxPol.Name = "TextBoxPol";
             this.TextBoxPol.Size = new System.Drawing.Size(200, 20);
             this.TextBoxPol.TabIndex = 3;

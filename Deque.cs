@@ -8,11 +8,15 @@ namespace Ну_как_там_с_деком
 
         public Deque(int Lenght) : base(Lenght)
         {
-            front = Lenght - 1;
+            front = Lenght + 1;
         }
         private bool CheckConflict()
         {
-            return top == front;
+            return top == front || (top == -1 && front == 0) || (top == items.Count && front == items.Count + 1);
+        }
+        private bool CheckDEmpty()
+        {
+            return front >= items.Count;
         }
         private bool CheckDFull()
         {
@@ -44,12 +48,14 @@ namespace Ну_как_там_с_деком
                 throw new IndexOutOfRangeException();
             else
             {
+                if (front == items.Count + 1)
+                    front--;
                 items[--front] = TextIn;
             }
         }
         public void popFront()
         {
-            if (CheckEmpty()|| CheckConflict())
+            if (CheckDEmpty()|| CheckConflict())
                 throw new IndexOutOfRangeException();
             else
             {
@@ -58,7 +64,10 @@ namespace Ну_как_там_с_деком
         }
         public int getFront()
         {
-            return items[front - 1];
+            if (CheckDEmpty())
+                throw new IndexOutOfRangeException();
+            else
+                return items[front];
         }
 
         public int[] getAll()

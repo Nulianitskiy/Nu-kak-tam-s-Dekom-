@@ -59,48 +59,42 @@ namespace Может_через_список_попробовать
         private void Add_end_Click(object sender, EventArgs e)//Добавление элемента в конец
         {
             int number;
-            try
-            {
-                Int32.TryParse(TextBoxIn.Text, out number);
-            }
-            catch (Exception)
+            if (Int32.TryParse(TextBoxIn.Text, out number))
+                try
+                {
+                    Serega.pushFront(Convert.ToInt32(TextBoxIn.Text));
+                    RichTextBox.Text += "\nВ дек добавлен элемент!";
+                    TextBoxIn.Text = "";
+                }
+                catch (IndexOutOfRangeException)
+                {
+                    RichTextBox.Text += "\nОшибка переполнения данных!";
+                    TextBoxIn.Text = "";
+                }
+            else
             {
                 RichTextBox.Text += "\nОшибка ввода данных!";
-                TextBoxIn.Text = "";
-            }
-            try
-            {
-                Serega.pushFront(Convert.ToInt32(TextBoxIn.Text));
-                RichTextBox.Text += "\nВ дек добавлен элемент!";
-                TextBoxIn.Text = "";
-            }
-            catch (IndexOutOfRangeException)
-            {
-                RichTextBox.Text += "\nОшибка переполнения данных!";
                 TextBoxIn.Text = "";
             }
         }
         private void Add_start_Click(object sender, EventArgs e)//Добавление элемента в начало
         {
             int number;
-            try
-            {
-                Int32.TryParse(TextBoxIn.Text, out number);
-            }
-            catch (Exception)
+            if (Int32.TryParse(TextBoxIn.Text, out number))
+                try
+                {
+                    Serega.pushBack(Convert.ToInt32(TextBoxIn.Text));
+                    RichTextBox.Text += "\nВ дек добавлен элемент!";
+                    TextBoxIn.Text = "";
+                }
+                catch (IndexOutOfRangeException)
+                {
+                    RichTextBox.Text += "\nОшибка переполнения данных!";
+                    TextBoxIn.Text = "";
+                }
+            else
             {
                 RichTextBox.Text += "\nОшибка ввода данных!";
-                TextBoxIn.Text = "";
-            }
-            try
-            {
-                Serega.pushBack(Convert.ToInt32(TextBoxIn.Text));
-                RichTextBox.Text += "\nВ дек добавлен элемент!";
-                TextBoxIn.Text = "";
-            }
-            catch (IndexOutOfRangeException)
-            {
-                RichTextBox.Text += "\nОшибка переполнения данных!";
                 TextBoxIn.Text = "";
             }
         }
@@ -114,7 +108,7 @@ namespace Может_через_список_попробовать
             }
             catch (IndexOutOfRangeException)
             {
-                RichTextBox.Text += "\nДек пуст!";
+                RichTextBox.Text += "\nКонец дека пуст!";
             }
         }
 
@@ -127,7 +121,7 @@ namespace Может_через_список_попробовать
             }
             catch (IndexOutOfRangeException)
             {
-                RichTextBox.Text += "\nДек пуст!";
+                RichTextBox.Text += "\nНачало дека пусто!";
             }
         }
 
@@ -140,7 +134,7 @@ namespace Может_через_список_попробовать
             }
             catch (Exception)
             {
-                RichTextBox.Text += "\nДек пуст!";
+                RichTextBox.Text += "\nНевозможно!";
             }
         }
         private void Start_Click(object sender, EventArgs e)//Начало дека
@@ -152,7 +146,7 @@ namespace Может_через_список_попробовать
             }
             catch (Exception)
             {
-                RichTextBox.Text += "\nДек пуст!";
+                RichTextBox.Text += "\nНевозможно!";
             }
         }
 

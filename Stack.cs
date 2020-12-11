@@ -14,7 +14,8 @@ namespace Ну_как_там_с_деком
             
             for (int i = 0; i < Lenght; i++)
                 items.Add(0);
-            top = 0;
+
+            top = -1;
         }
 
         protected bool CheckFull()
@@ -23,7 +24,7 @@ namespace Ну_как_там_с_деком
         }
         protected bool CheckEmpty()
         {
-            return top == 0;
+            return top < 0;
         }
 
         protected void push(int TextIn) /*Добавление в топ*/
@@ -32,6 +33,8 @@ namespace Ну_как_там_с_деком
                 throw new IndexOutOfRangeException();
             else
             {
+                if (top == -1)
+                    top++;
                 items[top++] = TextIn;
             }
         }
@@ -42,7 +45,10 @@ namespace Ну_как_там_с_деком
                 throw new IndexOutOfRangeException();
             else
             {
-                items[--top] = 0;
+                if (top == 0)
+                    top--;
+                else
+                    items[--top] = 0;
             }
         }
 
@@ -51,7 +57,7 @@ namespace Ну_как_там_с_деком
             if (CheckEmpty())
                 throw new IndexOutOfRangeException();
             else
-                return items[top - 1];
+                return items[top];
         }
 
         public int operations(string chose)

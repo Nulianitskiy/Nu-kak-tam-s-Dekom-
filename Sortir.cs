@@ -165,6 +165,7 @@ namespace Ну_как_там_с_деком
             }
         }
 
+
         public class Node
         {
             public int Key { get; set; }
@@ -180,10 +181,10 @@ namespace Ну_как_там_с_деком
         public class TreeSort
         {
             // Root of Binary Search Tree
-            public Node Root = null;
+            Node Root = null;
 
 
-            public Node Insert(Node root, int key)
+            Node Insert(Node root, int key)
             {
 
                 /* If the tree is empty, 
@@ -208,23 +209,12 @@ namespace Ну_как_там_с_деком
                 return root;
             }
 
-            public void inorderRec(Node root)
-            {
-                if (root != null)
-                {
-                    inorderRec(root.LeftNode);
-                    Console.Write(root.Key + " ");
-                    inorderRec(root.RightNode);
-                }
-            }
-
             public void InsertToTree(int[] arr)
             {
                 for (int i = 0; i < arr.Length; i++)
                 {
                     Root = Insert(Root, arr[i]);
                 }
-
             }
         }
 
@@ -247,6 +237,7 @@ namespace Ну_как_там_с_деком
                     heapify(arr, i, 0);// вызываем процедуру heapify на уменьшенной куче
                 }
             }
+
 
             // Процедура для преобразования в двоичную кучу поддерева с корневым узлом i, что является
             // индексом в arr[]. n - размер кучи

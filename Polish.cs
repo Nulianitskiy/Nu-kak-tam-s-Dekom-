@@ -1,148 +1,167 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Globalization;
 
 namespace Ну_как_там_с_деком
 {
-    public class Polish
+    class Opz
     {
-       
-        static public double Calculate(string input)
+        private List<object> opz;
+
+        private Opz()
         {
-            string output = GetExpression(input); //Преобразовываем выражение в постфиксную запись
-            double result = Counting(output); //Решаем полученное выражение
-            return result; //Возвращаем результат
+            opz = new List<object>();
         }
-        static private string GetExpression(string input)
+
+        private void addNumber(ref string number)
         {
-            string output = string.Empty; //Строка для хранения выражения
-            Stack<char> operStack = new Stack<char>(); //Стек для хранения операторов
-
-            for (int i = 0; i < input.Length; i++) //Для каждого символа в входной строке
+            if (number == "")
             {
-                //Разделители пропускаем
-                if (IsDelimeter(input[i]))
-                    continue; //Переходим к следующему символу
+                return;
+            }
+            number = number.Replace(',', '.');
+            double numberAsDouble;
+            if (!double.TryParse(number, NumberStyles.Any, CultureInfo.InvariantCulture, out numberAsDouble))
+            {
+                throw new Exception("Один из операндов был не числом");
+            }
+            if (number.Length > 0)
+            {
+                opz.Add(numberAsDouble);
+                number = "";
+            }
+        }
 
-                //Если символ - цифра, то считываем все число
-                if (Char.IsDigit(input[i])) //Если цифра
+        public static Opz fromInfix(string input)
+        {
+            var res = new Opz();
+            Stack<char> stack = new Stack<char>();
+            bool checkMinus = true;
+            string number = "";
+            foreach (var symbol in input)
+            {
+                if (char.IsWhiteSpace(symbol))
                 {
-                    //Читаем до разделителя или оператора, что бы получить число
-                    while (!IsDelimeter(input[i]) && !IsOperator(input[i]))
-                    {
-                        output += input[i]; //Добавляем каждую цифру числа к нашей строке
-                        i++; //Переходим к следующему символу
-
-                        if (i == input.Length) break; //Если символ - последний, то выходим из цикла
-                    }
-
-                    output += " "; //Дописываем после числа пробел в строку с выражением
-                    i--; //Возвращаемся на один символ назад, к символу перед разделителем
+                    continue;
                 }
-
-                //Если символ - оператор
-                if (IsOperator(input[i])) //Если оператор
+                if (char.IsDigit(symbol) || symbol == '.'
+                    || symbol == ',' || (symbol == '-' && checkMinus))
                 {
-                    if (input[i] == '(') //Если символ - открывающая скобка
-                        operStack.Push(input[i]); //Записываем её в стек
-                    else if (input[i] == ')') //Если символ - закрывающая скобка
+                    number += symbol;
+                }
+                else
+                {
+                    res.addNumber(ref number);
+                    if (symbol == '(')
                     {
-                        //Выписываем все операторы до открывающей скобки в строку
-                        char s = operStack.Pop();
-
-                        while (s != '(')
+                        stack.Push(symbol);
+                    }
+                    else if (symbol == ')')
+                    {
+                        while (stack.Count > 0 && stack.Peek() != '(')
                         {
-                            output += s.ToString() + ' ';
-                            s = operStack.Pop();
+                            res.opz.Add(stack.Pop());
                         }
+                        if (stack.Count <= 0 || stack.Peek() != '(')
+                        {
+                            throw new Exception("В выражении либо неверно поставлен разделитель, либо не согласованы скобки");
+                        }
+                        stack.Pop();
                     }
-                    else //Если любой другой оператор
+                    else if (isBinaryOp(symbol))
                     {
-                        if (operStack.Count > 0) //Если в стеке есть элементы
-                            if (GetPriority(input[i]) <= GetPriority(operStack.Peek())) //И если приоритет нашего оператора меньше или равен приоритету оператора на вершине стека
-                                output += operStack.Pop().ToString() + " "; //То добавляем последний оператор из стека в строку с выражением
-
-                        operStack.Push(char.Parse(input[i].ToString())); //Если стек пуст, или же приоритет оператора выше - добавляем операторов на вершину стека
-
+                        while (stack.Count > 0 && isPriorityHigher(stack.Peek(), symbol))
+                        {
+                            res.opz.Add(stack.Pop());
+                        }
+                        stack.Push(symbol);
                     }
                 }
+                checkMinus = symbol == '(';
             }
-
-            //Когда прошли по всем символам, выкидываем из стека все оставшиеся там операторы в строку
-            while (operStack.Count > 0)
-                output += operStack.Pop() + " ";
-
-            return output; //Возвращаем выражение в постфиксной записи
-        }
-        static private double Counting(string input)
-        {
-            double result = 0; //Результат
-            Stack<double> temp = new Stack<double>(); //Dhtvtyysq стек для решения
-
-            for (int i = 0; i < input.Length; i++) //Для каждого символа в строке
+            res.addNumber(ref number);
+            while (stack.Count > 0 && isOperation(stack.Peek()))
             {
-                //Если символ - цифра, то читаем все число и записываем на вершину стека
-                if (Char.IsDigit(input[i]))
-                {
-                    string a = string.Empty;
-
-                    while (!IsDelimeter(input[i]) && !IsOperator(input[i])) //Пока не разделитель
-                    {
-                        a += input[i]; //Добавляем
-                        i++;
-                        if (i == input.Length) break;
-                    }
-                    temp.Push(double.Parse(a)); //Записываем в стек
-                    i--;
-                }
-                else if (IsOperator(input[i])) //Если символ - оператор
-                {
-                    //Берем два последних значения из стека
-                    double a = temp.Pop();
-                    double b = temp.Pop();
-
-                    switch (input[i]) //И производим над ними действие, согласно оператору
-                    {
-                        case '+': result = b + a; break;
-                        case '-': result = b - a; break;
-                        case '*': result = b * a; break;
-                        case '/': result = b / a; break;
-                        case '^': result = double.Parse(Math.Pow(double.Parse(b.ToString()), double.Parse(a.ToString())).ToString()); break;
-                    }
-                    temp.Push(result); //Результат вычисления записываем обратно в стек
-                }
+                res.opz.Add(stack.Pop());
             }
-            return temp.Peek(); //Забираем результат всех вычислений из стека и возвращаем его
-        }
-
-        static private bool IsDelimeter(char c)
-        {
-            if ((" =".IndexOf(c) != -1))
-                return true;
-            return false;
-        }
-        static private bool IsOperator(char с)
-        {
-            if (("+-/*^()".IndexOf(с) != -1))
-                return true;
-            return false;
-        }
-
-        static private byte GetPriority(char s)
-        {
-            switch (s)
+            if (stack.Count > 0)
             {
-                case '(': return 0;
-                case ')': return 1;
-                case '+': return 2;
-                case '-': return 3;
-                case '*': return 4;
-                case '/': return 4;
-                case '^': return 5;
-                default: return 6;
+                throw new Exception("В выражении не согласованы скобки");
             }
+            return res;
+        }
+
+        public string toString()
+        {
+            return string.Join(" ", opz);
+        }
+
+        public double evaluate()
+        {
+            Stack<double> stack = new Stack<double>();
+            foreach (var el in opz)
+            {
+                if (el is char)
+                {
+                    double b = stack.Pop();
+                    double a = stack.Pop();
+                    char op = (char)el;
+                    if (op == '+')
+                    {
+                        stack.Push(a + b);
+                    }
+                    else if (op == '-')
+                    {
+                        stack.Push(a - b);
+                    }
+                    else if (op == '*')
+                    {
+                        stack.Push(a * b);
+                    }
+                    else if (op == '/')
+                    {
+                        stack.Push(a / b);
+                    }
+                }
+                else
+                {
+                    stack.Push((double)el);
+                }
+            }
+            if (stack.Count != 1)
+            {
+                throw new Exception("При вычислении на стеке должен был остаться 1 элемент." +
+                    " Осталось " + stack.Count + " элемент. Ошибка");
+            }
+            return stack.Pop();
+        }
+
+        private static bool isOperation(char symbol)
+        {
+            return isBinaryOp(symbol);
+        }
+
+        private static bool isBinaryOp(char symbol)
+        {
+            return symbol == '+' || symbol == '-'
+                || symbol == '*' || symbol == '/';
+        }
+
+        private static bool isPriorityHigher(char a, char b)
+        {
+            if (a == '*' || a == '/')
+            {
+                return true;
+            }
+            if (a == '+' || a == '-')
+            {
+                if (b == '*' || b == '/')
+                {
+                    return false;
+                }
+                return true;
+            }
+            return false;
         }
     }
 }

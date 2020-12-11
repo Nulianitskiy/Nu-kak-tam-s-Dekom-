@@ -19,7 +19,25 @@ namespace Ну_как_там_с_деком
 
         private void Calculation_Click(object sender, EventArgs e)
         {
-            RichTextBoxPol.Text = Convert.ToString(Polish.Calculate(TextBoxPol.Text));
+            Opz opz = null;
+            try
+            {
+                opz = Opz.fromInfix(TextBoxPol.Text);
+                RichTextBoxPol.Text = opz.toString();
+            }
+            catch (Exception ex)
+            {
+                RichTextBoxPol.Text = "Ошибка: " + ex.Message;
+                return;
+            }
+            try
+            {
+                RichTextBoxPol.Text += " = " + opz.evaluate().ToString();
+            }
+            catch (Exception ex)
+            {
+                RichTextBoxPol.Text = "Ошибка: " + ex.Message;
+            }
         }
 
     }

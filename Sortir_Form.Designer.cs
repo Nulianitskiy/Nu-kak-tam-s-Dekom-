@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Sortir_Form));
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -43,6 +44,8 @@
             this.RichTextBoxTime = new System.Windows.Forms.RichTextBox();
             this.PrintIn = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
+            this.zMain = new ZedGraph.ZedGraphControl();
+            this.graphCreate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -179,12 +182,39 @@
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
+            // zMain
+            // 
+            this.zMain.Location = new System.Drawing.Point(640, -3);
+            this.zMain.Name = "zMain";
+            this.zMain.ScrollGrace = 0D;
+            this.zMain.ScrollMaxX = 0D;
+            this.zMain.ScrollMaxY = 0D;
+            this.zMain.ScrollMaxY2 = 0D;
+            this.zMain.ScrollMinX = 0D;
+            this.zMain.ScrollMinY = 0D;
+            this.zMain.ScrollMinY2 = 0D;
+            this.zMain.Size = new System.Drawing.Size(602, 484);
+            this.zMain.TabIndex = 14;
+            this.zMain.UseExtendedPrintDialog = true;
+            // 
+            // graphCreate
+            // 
+            this.graphCreate.Location = new System.Drawing.Point(1015, 12);
+            this.graphCreate.Name = "graphCreate";
+            this.graphCreate.Size = new System.Drawing.Size(102, 23);
+            this.graphCreate.TabIndex = 15;
+            this.graphCreate.Text = "Построить";
+            this.graphCreate.UseVisualStyleBackColor = true;
+            this.graphCreate.Click += new System.EventHandler(this.graphCreate_Click);
+            // 
             // Sortir_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(640, 480);
+            this.ClientSize = new System.Drawing.Size(1240, 480);
+            this.Controls.Add(this.graphCreate);
+            this.Controls.Add(this.zMain);
             this.Controls.Add(this.button10);
             this.Controls.Add(this.PrintIn);
             this.Controls.Add(this.RichTextBoxTime);
@@ -222,5 +252,7 @@
         private System.Windows.Forms.RichTextBox RichTextBoxTime;
         private System.Windows.Forms.Button PrintIn;
         private System.Windows.Forms.Button button10;
+        private ZedGraph.ZedGraphControl zMain;
+        private System.Windows.Forms.Button graphCreate;
     }
 }

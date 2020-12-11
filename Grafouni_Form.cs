@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ZedGraph;
 
@@ -17,60 +11,60 @@ namespace Ну_как_там_с_деком
         {
             InitializeComponent();
         }
-        GraphPane paneXY;
-        GraphPane paneYZ;
-        GraphPane paneXZ;
+        GraphPane paneMain;
 
         private void Grafouni_Form_Load(object sender, EventArgs e)
         {
-            paneXY = zOXY.GraphPane;
-            paneYZ = zOYZ.GraphPane;
-            paneXZ = zOXZ.GraphPane;
+            paneMain = zMain.GraphPane;
             InitializeComponent();
         }
 
-        double func(double x)
+        double func(double x, double a, double y, double b , double z, double c)
         {
-            return Math.Pow(x, 2);
+            return Math.Pow(x, 2) / Math.Pow(a, 2) + Math.Pow(y, 2) / Math.Pow(b, 2) + Math.Pow(z, 2) / Math.Pow(c, 2);
         }
 
         private void Creation_Click(object sender, EventArgs e)
         {
 
-            zOXY.GraphPane.CurveList.Clear();
-            zOYZ.GraphPane.CurveList.Clear();
-            zOXZ.GraphPane.CurveList.Clear();
+            zMain.GraphPane.CurveList.Clear();
             PointPairList listXY = new PointPairList();
             PointPairList listYZ = new PointPairList();
             PointPairList listXZ = new PointPairList();
-            double xmin = -10;
-            double xmax = 10;
+            double Left = Convert.ToDouble(tbLeft.Text);
+            double Right = Convert.ToDouble(tbRight.Text);
+            double Step = Convert.ToDouble(tbStep.Text);
 
-            for (double x = xmin; x <= xmax; x += 0.1)
+            for (double x = Left; x <= Right; x += Step)
             {
-                listXY.Add(x, func(x));
-                listYZ.Add(func(x), x);
-                listXZ.Add(x, x);
+                
             }
-            LineItem Curve1 = paneXY.AddCurve("FunctionXY", listXY, Color.Blue, SymbolType.None);
-            LineItem Curve2 = paneYZ.AddCurve("FunctionYZ", listYZ, Color.Blue, SymbolType.None);
-            LineItem Curve3 = paneXZ.AddCurve("FunctionXZ", listXZ, Color.Blue, SymbolType.None);
+            LineItem Curve1 = paneMain.AddCurve("FunctionXY", listXY, Color.Blue, SymbolType.None);
 
 
-            // !!! Установим заливку для кривой
-            Curve1.Line.Fill = new ZedGraph.Fill(Color.Blue);
-            Curve2.Line.Fill = new ZedGraph.Fill(Color.Blue);
-            Curve3.Line.Fill = new ZedGraph.Fill(Color.Blue);
+            zMain.AxisChange();
+            zMain.Invalidate();
+        }
 
-            zOXY.AxisChange();
-            zOXY.Invalidate();
+        private void OXY_Click(object sender, EventArgs e)
+        {
+            zMain.GraphPane.CurveList.Clear();
+            paneMain.XAxis.Title.Text = "Ось X";
+            paneMain.YAxis.Title.Text = "Ось Y";
+        }
 
-            zOYZ.AxisChange();
-            zOYZ.Invalidate();
+        private void OYZ_Click(object sender, EventArgs e)
+        {
+            zMain.GraphPane.CurveList.Clear();
+            paneMain.XAxis.Title.Text = "Ось Y";
+            paneMain.YAxis.Title.Text = "Ось Z";
+        }
 
-            zOXZ.AxisChange();
-            zOXZ.Invalidate();
-
+        private void OXZ_Click(object sender, EventArgs e)
+        {
+            zMain.GraphPane.CurveList.Clear();
+            paneMain.XAxis.Title.Text = "Ось X";
+            paneMain.YAxis.Title.Text = "Ось Z";
         }
     }
 }
