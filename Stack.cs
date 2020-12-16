@@ -15,30 +15,30 @@ namespace Ну_как_там_с_деком
             for (int i = 0; i < Lenght; i++)
                 items.Add(0);
 
-            top = 0;
+            top = -1;
         }
 
         protected bool CheckFull()
         {
-            return top >= items.Count;
+            return top >= items.Count - 1;
         }
         protected bool CheckEmpty()
         {
-            return top <= 0;
+            return top <= -1;
         }
 
         protected void push(int TextIn) /*Добавление в топ*/
         {
             if (CheckFull())
                 throw new IndexOutOfRangeException();
-            items[top++] = TextIn;
+            items[++top] = TextIn;
         }
 
         protected void pop() /*Удаление из топа*/
         {
             if (CheckEmpty())
                 throw new IndexOutOfRangeException();
-            items[--top] = 0;
+            items[top--] = 0;
         }
 
         protected int get() /*Элемент на топе*/

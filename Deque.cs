@@ -9,11 +9,10 @@ namespace Ну_как_там_с_деком
         public Deque(int Lenght) : base(Lenght)
         {
             front = Lenght;
-            top = -1;
         }
         private bool CheckConflict()
         {
-            return top == front || (top == -1 && front == 0) || (top == items.Count && front == items.Count + 1);
+            return top == front - 1;
         }
         private bool CheckDEmpty()
         {
@@ -21,30 +20,23 @@ namespace Ну_как_там_с_деком
         }
         private bool CheckDFull()
         {
-            return front <= 0;
+            return front <= 0 || (top == -1 && front == 0) || (top == items.Count - 1 && front == items.Count);
         }
 
 
         public void pushBack(int TextIn) /*Добавление в начало дека*/
         {
-            if (CheckConflict())
+            if (CheckConflict() || CheckDFull())
                 throw new IndexOutOfRangeException();
             else
             {
-                if (top == -1)
-                    top++;
                 push(TextIn);
             }
         }
 
         public void popBack() /*Удаление из начала дека*/
         {
-            if (CheckConflict())
-                throw new IndexOutOfRangeException();
-            else
-            {
-                pop();
-            }
+            pop();
         }
 
         public int getBack() /*Начальный элемент*/
@@ -58,14 +50,12 @@ namespace Ну_как_там_с_деком
                 throw new IndexOutOfRangeException();
             else
             {
-                if (front == items.Count + 1)
-                    front--;
                 items[--front] = TextIn;
             }
         }
         public void popFront()
         {
-            if (CheckDEmpty()|| CheckConflict())
+            if (CheckDEmpty())
                 throw new IndexOutOfRangeException();
             else
             {
@@ -92,9 +82,23 @@ namespace Ну_как_там_с_деком
         public void dequeReverse()
         {
             int t = front;
-            front = top;
-            top = t;
+            front = items.Count - top - 1;
+            top = items.Count - t - 1;
             stackReverse();
+        }
+        public int get_Front
+        {
+            get
+            {
+                return front;
+            }
+        }
+        public int get_Back
+        {
+            get
+            {
+                return top;
+            }
         }
     }
 }

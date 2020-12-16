@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Drawing;
 using System.Windows.Forms;
 using Ну_как_там_с_деком;
 
@@ -137,6 +138,7 @@ namespace Может_через_список_попробовать
                 RichTextBox.Text += "\nНевозможно!";
             }
         }
+
         private void Start_Click(object sender, EventArgs e)//Начало дека
         {
             try
@@ -176,6 +178,7 @@ namespace Может_через_список_попробовать
             RichTextBox.Text += "\nКолличество элементов в деке = ";
             RichTextBox.Text += Serega.getAll().Count().ToString();
         }
+
         private void All_Click(object sender, EventArgs e) //Все элементы
         {
             int[] output = Serega.getAll();
@@ -197,7 +200,7 @@ namespace Может_через_список_попробовать
             RichTextBox.Text = "";
         }
 
-        private void RichTextBox_TextChanged(object sender, EventArgs e)
+        private void RichTextBox_TextChanged(object sender, EventArgs e) //Автоскролл вниз
         {
             RichTextBox.SelectionStart = RichTextBox.Text.Length;
             RichTextBox.ScrollToCaret();
