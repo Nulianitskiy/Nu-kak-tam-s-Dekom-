@@ -11,48 +11,37 @@ namespace Ну_как_там_с_деком
         public Stack(int Lenght)
         {
             items = new List<int>();
-            
+
             for (int i = 0; i < Lenght; i++)
                 items.Add(0);
 
-            top = -1;
+            top = 0;
         }
 
         protected bool CheckFull()
         {
-            return top == items.Count - 1;
+            return top >= items.Count;
         }
         protected bool CheckEmpty()
         {
-            return top < 0;
+            return top <= 0;
         }
 
         protected void push(int TextIn) /*Добавление в топ*/
         {
             if (CheckFull())
                 throw new IndexOutOfRangeException();
-            else
-            {
-                if (top == -1)
-                    top++;
-                items[top++] = TextIn;
-            }
+            items[top++] = TextIn;
         }
 
         protected void pop() /*Удаление из топа*/
         {
             if (CheckEmpty())
                 throw new IndexOutOfRangeException();
-            else
-            {
-                if (top == 0)
-                    top--;
-                else
-                    items[--top] = 0;
-            }
+            items[--top] = 0;
         }
 
-        public int get() /*Элемент на топе*/
+        protected int get() /*Элемент на топе*/
         {
             if (CheckEmpty())
                 throw new IndexOutOfRangeException();
@@ -60,7 +49,7 @@ namespace Ну_как_там_с_деком
                 return items[top];
         }
 
-        public int operations(string chose)
+        protected int stackOperations(string chose)
         {
             if (!CheckEmpty())
             {
@@ -102,7 +91,7 @@ namespace Ну_как_там_с_деком
         protected int[] all() /*Все элементы*/
         {
             int[] output = items.ToArray();
-            return output;   
+            return output;
         }
 
         protected void stackReverse() /*Инверсия*/

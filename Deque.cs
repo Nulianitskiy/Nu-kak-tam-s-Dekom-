@@ -8,7 +8,8 @@ namespace Ну_как_там_с_деком
 
         public Deque(int Lenght) : base(Lenght)
         {
-            front = Lenght + 1;
+            front = Lenght;
+            top = -1;
         }
         private bool CheckConflict()
         {
@@ -20,7 +21,7 @@ namespace Ну_как_там_с_деком
         }
         private bool CheckDFull()
         {
-            return front == 0;
+            return front <= 0;
         }
 
 
@@ -29,12 +30,21 @@ namespace Ну_как_там_с_деком
             if (CheckConflict())
                 throw new IndexOutOfRangeException();
             else
+            {
+                if (top == -1)
+                    top++;
                 push(TextIn);
+            }
         }
 
         public void popBack() /*Удаление из начала дека*/
         {
-            pop();
+            if (CheckConflict())
+                throw new IndexOutOfRangeException();
+            else
+            {
+                pop();
+            }
         }
 
         public int getBack() /*Начальный элемент*/
@@ -70,16 +80,21 @@ namespace Ну_как_там_с_деком
                 return items[front];
         }
 
+        public int operations(string chose)
+        {
+            return stackOperations(chose);
+        }
+
         public int[] getAll()
         {
             return all();
         }
         public void dequeReverse()
         {
-            stackReverse();
             int t = front;
             front = top;
             top = t;
+            stackReverse();
         }
     }
 }
