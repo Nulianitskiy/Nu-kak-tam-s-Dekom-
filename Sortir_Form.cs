@@ -66,7 +66,7 @@ namespace Ну_как_там_с_деком
             TimeSpan ts = stopWatch.Elapsed;
             string elapsedTime = Convert.ToString(ts.TotalSeconds);
             double time = Convert.ToDouble(elapsedTime);
-            Bubble_list.Add(WorkArray.Length, time);
+            Shaker_list.Add(WorkArray.Length, time);
 
             TimeSpan ts2 = stopWatch.Elapsed;
             string elapsedTime2 = String.Format("{0:00}:{1:00}:{2:00}.{3:00}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds);//Формат времени секндомера
@@ -132,11 +132,11 @@ namespace Ну_как_там_с_деком
 
         private void Tree_Click(object sender, EventArgs e)
         {
+            Sortir.TreeSort Tree = new Sortir.TreeSort();
             Stopwatch stopWatch = new Stopwatch();
-            Sortir.TreeSort tree = new Sortir.TreeSort();
             stopWatch.Start();
 
-            tree.InsertToTree(WorkArray);
+            WorkArray = Tree.sort(ref WorkArray);
 
             stopWatch.Stop();
 
@@ -193,8 +193,9 @@ namespace Ну_как_там_с_деком
         private void Create_Click(object sender, EventArgs e)
         {
             MainArray = Zuma.Zapolnitel(TextBoxZuma.Text);
-            WorkArray = MainArray;
-            RichTextBoxZuma.Text = "Длина массива = " + WorkArray.Length;
+            WorkArray = new int[MainArray.Length];
+            MainArray.CopyTo(WorkArray, 0);
+            RichTextBoxZuma.Text = "Длина массива = " + MainArray.Length;
         }
 
         private void PrintIn_Click(object sender, EventArgs e)
@@ -210,7 +211,7 @@ namespace Ну_как_там_с_деком
 
         private void button10_Click(object sender, EventArgs e)
         {
-            WorkArray = MainArray;
+            MainArray.CopyTo(WorkArray, 0);
             RichTextBoxZuma.Text = "Массив перезаписан!";
         }
 
