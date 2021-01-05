@@ -40,5 +40,10 @@ namespace Ну_как_там_с_деком
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            double word = Convert.ToDouble(textBox1.Text);
+            RichTextBoxPol.Text = Convert.ToString(word);
+        }
     }
 }

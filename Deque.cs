@@ -2,7 +2,7 @@
 
 namespace Ну_как_там_с_деком
 {
-    class Deque : Stack
+    public class Deque : Stack
     {
         private int front;
 

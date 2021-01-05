@@ -34,6 +34,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.TextBoxPol = new System.Windows.Forms.TextBox();
             this.RichTextBoxPol = new System.Windows.Forms.RichTextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // Calculation
@@ -84,12 +86,31 @@
             this.RichTextBoxPol.TabIndex = 4;
             this.RichTextBoxPol.Text = "";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(167, 126);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(167, 156);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 6;
+            // 
             // Polish_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(274, 260);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.RichTextBoxPol);
             this.Controls.Add(this.TextBoxPol);
             this.Controls.Add(this.label2);
@@ -109,5 +130,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox TextBoxPol;
         private System.Windows.Forms.RichTextBox RichTextBoxPol;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

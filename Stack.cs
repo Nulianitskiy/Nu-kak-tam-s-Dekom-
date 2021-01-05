@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Ну_как_там_с_деком
 {
-    class Stack
+    public class Stack
     {
         protected List<int> items;
         protected int top;

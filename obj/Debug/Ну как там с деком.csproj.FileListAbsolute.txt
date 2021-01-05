@@ -77,4 +77,5 @@ C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\bin\Debug\tr\ZedGraph.resources.d
 C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\bin\Debug\zh-cn\ZedGraph.resources.dll
 C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\bin\Debug\zh-tw\ZedGraph.resources.dll
 C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\obj\Debug\Ну как там с деком.csproj.CopyComplete
-C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\obj\Debug\Ну_как_там_с_деком.Grafouni_Form.resources
+C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\obj\Debug\Ну_как_там_с_деком.Grafoun_Form.resources
+C:\Users\User\source\repos\Nu-kak-tam-s-Dekom-\obj\Debug\Ну_как_там_с_деком.AutoLogic_Form.resources

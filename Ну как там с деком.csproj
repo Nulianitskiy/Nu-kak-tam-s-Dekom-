@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>Ну_как_там_с_деком</RootNamespace>
     <AssemblyName>Ну как там с деком</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -50,6 +50,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutoLogic.cs" />
+    <Compile Include="AutoLogic_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AutoLogic_Form.Designer.cs">
+      <DependentUpon>AutoLogic_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Choser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,11 +70,11 @@
     <Compile Include="Deque_Form.Designer.cs">
       <DependentUpon>Deque_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Grafouni_Form.cs">
+    <Compile Include="Grafoun_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Grafouni_Form.Designer.cs">
-      <DependentUpon>Grafouni_Form.cs</DependentUpon>
+    <Compile Include="Grafoun_Form.Designer.cs">
+      <DependentUpon>Grafoun_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Polish.cs" />
     <Compile Include="Polish_Form.cs">
@@ -86,14 +93,17 @@
       <DependentUpon>Sortir_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Stack.cs" />
+    <EmbeddedResource Include="AutoLogic_Form.resx">
+      <DependentUpon>AutoLogic_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Choser.resx">
       <DependentUpon>Choser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Deque_Form.resx">
       <DependentUpon>Deque_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Grafouni_Form.resx">
-      <DependentUpon>Grafouni_Form.cs</DependentUpon>
+    <EmbeddedResource Include="Grafoun_Form.resx">
+      <DependentUpon>Grafoun_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Polish_Form.resx">
       <DependentUpon>Polish_Form.cs</DependentUpon>
